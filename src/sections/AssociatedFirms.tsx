@@ -4,19 +4,19 @@ const FIRMS = [
   {
     name: 'Pérez del Castillo',
     url: 'https://www.perezdelcastillo.com',
-    img: '/images/Isotipo Blanco.png',
+    img: '/images/perezdelcastillo.jpg',
     blurb: 'Dirigido por el Dr. Federico Pérez del Castillo. Especial foco en inversiones, compraventa de empresas (M&A), real estate y asesoramiento sucesorio, combinando visión estratégica y solución práctica de conflictos.'
   },
   {
     name: 'LegalMind',
     url: 'https://www.legalmind.com.uy',
-    img: '/images/Isotipo Blanco.png',
+    img: '/images/legalmind.webp',
     blurb: 'Fundada por la Dra. María Laura Escudero. Asesoramiento en Derecho Empresarial, Civil, Comercial, Laboral e Internacional. Acompañan a compañías de diversos tamaños con enfoque preventivo y de cumplimiento.'
   },
   {
     name: 'Cauce Consultores',
     url: 'https://www.cauceconsultores.uy',
-    img: '/images/Isotipo Blanco.png',
+    img: '/images/cauceconsultores.jpg',
     blurb: 'Dirigido por el Dr. Álvaro Martín da Silva Falcón. Experiencia en litigios, arbitraje y asesoramiento empresarial, incluyendo justicia deportiva (AUF). Trabajo coordinado con equipos internos para resultados efectivos.'
   },
 ]
