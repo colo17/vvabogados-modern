@@ -6,12 +6,8 @@ export default function Footer(){
       <div className="container">
         <div className="footer-grid">
           <div>
-            <div style={{display:'flex',alignItems:'center',gap:10,fontWeight:800}}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="2" width="20" height="20" rx="6" fill="#c6a15b"/>
-                <path d="M7 16L10.5 8H13.5L17 16H14.7L13.9 14H10.1L9.3 16H7Z" fill="#0b2a42"/>
-              </svg>
-              <span>VV Abogados</span>
+            <div style={{marginBottom:12}}>
+              <img src="/images/Logo Horizontal Blanco.png" alt="VV Abogados" height="28" />
             </div>
             <p style={{marginTop:12, maxWidth:420}}>Especialistas en Propiedad Intelectual. Marcas, patentes y derechos de autor.</p>
           </div>

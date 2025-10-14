@@ -21,7 +21,6 @@ export default function Contact(){
     setIsLoading(true)
 
     try {
-      // EmailJS configuration - you'll need to replace these with your actual EmailJS credentials
       const result = await emailjs.send(
         'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
         'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
@@ -92,7 +91,7 @@ export default function Contact(){
           </div>
         </div>
         <div className="card">
-          <img src="https://images.unsplash.com/photo-1416339442236-8ceb164046f8?q=80&w=1200&auto=format&fit=crop" alt="Oficina" />
+          <img src="/images/Isotipo Blanco.png" alt="VV Abogados" />
           <div className="card-body">
             <h3 style={{marginTop:0}}>Datos de contacto</h3>
             <p style={{marginBottom:8,color:'#6b7a90'}}>veronicavanrell@vvabogados.com.uy</p>

@@ -10,11 +10,7 @@ export default function Navbar({ scrolled }: { scrolled:boolean }){
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="container navbar-inner">
         <a href="#inicio" className="nav-logo" onClick={close}>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="20" height="20" rx="6" fill="#c6a15b"/>
-            <path d="M7 16L10.5 8H13.5L17 16H14.7L13.9 14H10.1L9.3 16H7Z" fill="#0b2a42"/>
-          </svg>
-          <span>VV Abogados</span>
+          <img src="/images/Logo Horizontal Blanco.png" alt="VV Abogados" height="32" />
         </a>
 
         {/* Desktop nav */}

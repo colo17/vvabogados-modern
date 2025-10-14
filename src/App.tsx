@@ -11,7 +11,6 @@ import AssociatedFirms from './sections/AssociatedFirms'
 import Footer from './sections/Footer'
 
 export default function App(){
-  // For SSR-less single-page scrolling
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)

@@ -32,10 +32,7 @@ export default function Team(){
                 <h3 className="team-name">{p.name}</h3>
                 <p className="team-role">{p.role}</p>
                                 <span className="team-logo" aria-hidden>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="2" width="20" height="20" rx="6" fill="#c6a15b"/>
-                    <path d="M7 16L10.5 8H13.5L17 16H14.7L13.9 14H10.1L9.3 16H7Z" fill="#0b2a42"/>
-                  </svg>
+                  <img src="/images/Isotipo Blanco.png" alt="" width="32" height="24" />
                 </span>
               </div>
             </article>

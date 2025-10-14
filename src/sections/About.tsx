@@ -5,7 +5,7 @@ export default function About(){
     <section id="nosotros" className="section" style={{paddingTop:0}}>
       <div className="container grid cols-2">
         <div className="card">
-          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop" alt="Oficinas" />
+          <img src="/images/equipo1.jpeg" alt="VV Abogados" />
         </div>
         <div>
           <span className="badge">Nosotros</span>

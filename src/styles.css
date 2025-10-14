@@ -34,7 +34,7 @@ main{max-width:100%;overflow-x:hidden}
 .button--ghost{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
 .button--whatsapp{background:#25D366;border-color:#25D366}
 .button--whatsapp:hover{background:#22C55E;transform:translateY(-1px)}
-/* Desktop navbar contact button - white background with purple text */
+
 @media (min-width: 981px){
   .navbar .button{background:#fff;color:var(--primary);border-color:#fff}
   .navbar .button:hover{background:#f0f4fb;color:var(--primary-dark);transform:translateY(-1px)}
@@ -45,14 +45,14 @@ main{max-width:100%;overflow-x:hidden}
 #contacto{padding-top:0}
 .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .card-body{padding:24px}
-/* About section image should cover full card height */
+
 #nosotros .card{height:100%}
 #nosotros .card img{width:100%;height:100%;object-fit:cover}
-/* Contact section equal heights */
+
 #contacto .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
 #contacto .grid > div{display:flex;flex-direction:column;align-items:flex-start;height:100%}
 #contacto .grid .card{flex:1;min-height:0;width:100%}
-/* Mobile: Form above contact info */
+
 @media (max-width: 980px){
   #contacto .grid{grid-template-columns:1fr}
   #contacto .grid > div:first-child{order:1}
@@ -60,14 +60,14 @@ main{max-width:100%;overflow-x:hidden}
 }
 .section-title{font-size:36px;line-height:1.2;margin:0 0 12px;font-weight:800;color:var(--primary)}
 .section-desc{font-size:18px;color:var(--muted);margin:0 0 28px}
-/* Navbar */
+
 .navbar{
   position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s ease, box-shadow .3s ease;
   padding:18px 0;background:#6441a4 !important;
 }
 .navbar-inner{display:flex;align-items:center;justify-content:space-between}
 .nav-links{display:flex;gap:22px;align-items:center}
-/* SCROLLED NAVBAR - PURPLE BACKGROUND */
+
 .navbar--scrolled{
   background:red !important;
   box-shadow:0 10px 30px rgba(0,0,0,0.08) !important;
@@ -78,41 +78,39 @@ main{max-width:100%;overflow-x:hidden}
 .navbar--scrolled .button{color:white !important; background:rgba(255,255,255,0.2) !important; border-color:rgba(255,255,255,0.3) !important}
 .nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;color:#fff}
 .nav-link{color:#fff;font-weight:600}
-/* Hero */
+
 .hero{
   position:relative;min-height:78vh;display:flex;align-items:center;
   background: linear-gradient(135deg, #7e57ff 0%, #5a3ebd 50%, #2f165e 100%);
   color:#fff;overflow:hidden;
   padding-bottom:40px;
 }
-.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+.hero-content{text-align:center;max-width:800px;margin:0 auto}
+.hero-logo{margin:0 0 40px;display:flex;justify-content:center}
+.hero-logo img{height:160px;max-width:750px;width:auto}
 .hero h1{font-size:54px;line-height:1.05;margin:0 0 16px}
 .hero p{font-size:20px;color:#e7eef6;margin:0 0 28px}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 .hero-ornament{
   position:absolute;right:-140px;bottom:-140px;width:520px;height:520px;border-radius:50%;
   background: radial-gradient(closest-side, rgba(198,161,91,.25), transparent 65%);
 }
-/* Grid cards */
+
 .grid{display:grid;gap:22px}
 .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-/* Make last item in 3-column grid span full width if it's alone */
+
 .grid.cols-3 .card:nth-child(10){grid-column:1/-1;max-width:600px;margin:0 auto}
 @media (max-width: 980px){
-  .hero-grid{grid-template-columns:1fr; gap:32px}
+  .hero-content{text-align:center;max-width:100%;padding:0 20px}
+  .hero-logo img{height:80px;max-width:380px}
   .grid.cols-3{grid-template-columns:1fr}
   .grid.cols-2{grid-template-columns:1fr}
   .navbar{padding:12px 0}
   .hero{min-height:100vh; padding-top:40px; padding-bottom:60px; display:flex; align-items:center}
   .hero h1{font-size:36px; line-height:1.1}
   .hero p{font-size:18px; line-height:1.5}
-  .hero .card-body{padding:20px}
-  .hero .card-body h3{font-size:18px}
-  .hero .card-body p{font-size:14px; margin-bottom:12px}
-  .hero .card-body ul{font-size:14px; line-height:1.6}
-  .hero .card-body li{margin-bottom:8px}
-  /* Mobile hero - center content and hide white card */
+  
   .hero-grid{text-align:center;justify-items:center}
   .hero-grid > div:first-child{max-width:90%;margin:0 auto}
   .hero-grid .card{display:none}
@@ -120,16 +118,15 @@ main{max-width:100%;overflow-x:hidden}
   .hero-cta .button{pointer-events:auto;cursor:pointer;z-index:10;position:relative}
   .hero-cta .button--ghost{display:none}
 }
-/* Footer */
+
 .footer{background:#7e57ff;color:#c9d6e7;padding:56px 0}
 .footer a{color:#c9d6e7}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding-top:28px;color:#9fb2c8;font-size:14px}
-/* Simple form */
+
 .input{width:100%;padding:12px 14px;border:1px solid #e6eaf1;border-radius:12px}
 .label{display:block;margin-bottom:6px;font-weight:600;color:var(--text)}
 textarea.input{min-height:120px;resize:vertical}
 
-/* === Team cards (uniform, image-cover, overlay text) === */
 .team-card{ position: relative; height: 320px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background:#fff; }
 .team-img{ position:absolute; inset:0; width:100%; height:100%; object-fit: cover; }
 .team-overlay{
@@ -141,21 +138,16 @@ textarea.input{min-height:120px;resize:vertical}
 .team-name{ margin:0 0 2px; font-weight:800; font-size:16px; color:#fff }
 .team-role{ margin:0; font-size:13px; color:#e6eaf1 }
 
-/* tighter team grid spacing */
 .team-grid{ display:grid; gap:18px; grid-template-columns: repeat(3, minmax(0,1fr)); }
 @media (max-width: 980px){ .team-grid{ grid-template-columns:1fr 1fr; } }
 @media (max-width: 640px){ .team-grid{ grid-template-columns:1fr; } }
 
-/* === Clickable news cards === */
 .card--clickable{ transition: background .25s ease, transform .2s ease, box-shadow .25s ease; display:block; border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden; background:#fff; }
 .card--clickable:hover{ background: #f0f4fb; transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0,0,0,.10); }
 .card--clickable .card-body{ padding:24px; }
 
-
-/* Navbar scrolled logo text color fix */
 .navbar--scrolled .nav-logo span{ color: #ffffff !important; }
 
-/* Team logo at bottom-right */
 .team-logo{
   position:absolute;
   right:16px;
@@ -170,8 +162,6 @@ textarea.input{min-height:120px;resize:vertical}
   backdrop-filter: blur(2px);
 }
 
-
-/* === Associated Firms horizontal full-screen panels === */
 .assoc-wrapper{
   display:flex;
   overflow-x:auto;
@@ -180,9 +170,9 @@ textarea.input{min-height:120px;resize:vertical}
 }
 .assoc-panel{
   position:relative;
-  min-width:100%; /* full screen width */
+  min-width:100%;
   width:100vw;
-  height:72vh; /* generous height; can be 90vh if you prefer */
+  height:72vh;
   display:grid;
   place-items:center;
   scroll-snap-align:start;
@@ -214,8 +204,6 @@ textarea.input{min-height:120px;resize:vertical}
   margin:0 0 18px;
 }
 
-
-/* Arrows for associated firms slider */
 .assoc-arrow{
   position:absolute;
   top:50%;
@@ -237,8 +225,6 @@ textarea.input{min-height:120px;resize:vertical}
 .assoc-arrow.left{left:20px;}
 .assoc-arrow.right{right:20px;}
 
-
-/* Dots indicator (polished aesthetic) */
 .assoc-dots{
   position:absolute;
   bottom:16px;
@@ -268,15 +254,12 @@ textarea.input{min-height:120px;resize:vertical}
   box-shadow: 0 0 0 3px rgba(198,161,91,.45), 0 6px 18px rgba(0,0,0,.28);
 }
 
-
-/* Hide horizontal scrollbar across browsers */
 .assoc-wrapper{
-  -ms-overflow-style: none; /* IE/Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.assoc-wrapper::-webkit-scrollbar{ display: none; } /* Chrome/Safari */
+.assoc-wrapper::-webkit-scrollbar{ display: none; }
 
-/* Desktop shows links; mobile shows hamburger */
 .nav-desktop{ display:flex; gap:22px; align-items:center }
 .nav-hamburger{ display:none }
 
@@ -316,20 +299,16 @@ textarea.input{min-height:120px;resize:vertical}
     background-color: #f8fafc;
   }
 
-  /* Prevent hero overlap by adding top spacing for mobile */
   main{ padding-top: 70px; }
   
-  /* Fix white line below header on mobile by extending hero background */
   .hero{ margin-top: -70px; padding-top: 70px; }
 }
-/* NAVBAR BASE PATCH */
+
 .navbar{ position:fixed; top:0; left:0; right:0; z-index:100; background:transparent; }
-/* Force purple background when scrolled */
+
 .navbar--scrolled{ background:var(--primary) !important; }
 header.navbar--scrolled{ background:var(--primary) !important; }
 
-
-/* Footer responsive grid */
 .footer-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px; }
 .footer a, .footer div{ word-wrap: anywhere; overflow-wrap: anywhere; }
 
@@ -339,35 +318,28 @@ header.navbar--scrolled{ background:var(--primary) !important; }
   .footer-bottom{ font-size:12px; }
 }
 
-/* Mobile navbar violet base */
 @media (max-width: 980px){
   .navbar:not(.navbar--scrolled){ background: var(--primary); box-shadow: none; }
   .navbar:not(.navbar--scrolled) .nav-logo span{ color:#fff; }
   .navbar:not(.navbar--scrolled) .nav-link{ color:#fff; }
-  /* Ensure scrolled state works on mobile */
   .navbar--scrolled{ background: #6441a4 !important; }
   .navbar--scrolled .nav-logo span{ color: white !important; }
   .navbar--scrolled .nav-link{ color: white !important; }
 }
 
-/* Keep scrolled behavior (white) already handled by .navbar--scrolled */
-
-/* Hamburger morph to X */
 .nav-hamburger{ position:relative; }
 .nav-hamburger span{ transition: transform .25s ease, opacity .2s ease; }
 .nav-hamburger.is-open span:nth-child(1){ transform: translateY(6px) rotate(45deg); }
 .nav-hamburger.is-open span:nth-child(2){ opacity:0; }
 .nav-hamburger.is-open span:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
-/* Improve contrast on violet */
+
 @media (max-width: 980px){
   .nav-hamburger{ border-color: rgba(255,255,255,.5); }
 }
 
-/* Fix thin white line under navbar on mobile */
 @media (max-width: 980px){
   .navbar{ border-bottom: 0 !important; }
   .navbar::after{ content:none !important; }
-  /* Make brand text stay white even when scrolled on mobile */
   .navbar--scrolled .nav-logo span{ color:#fff !important; }
   .navbar--scrolled .nav-hamburger{ border-color: rgba(255,255,255,.5); }
   .navbar--scrolled .nav-hamburger span{ background:#fff; }
