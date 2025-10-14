@@ -9,7 +9,7 @@ export default function Navbar({ scrolled }: { scrolled:boolean }){
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="container navbar-inner">
-        <a href="#" className="nav-logo" onClick={close}>
+        <a href="#inicio" className="nav-logo" onClick={close}>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="2" y="2" width="20" height="20" rx="6" fill="#c6a15b"/>
             <path d="M7 16L10.5 8H13.5L17 16H14.7L13.9 14H10.1L9.3 16H7Z" fill="#0b2a42"/>
@@ -19,7 +19,7 @@ export default function Navbar({ scrolled }: { scrolled:boolean }){
 
         {/* Desktop nav */}
         <nav className="nav-links nav-desktop">
-          <a className="nav-link" href="#">Inicio</a>
+          <a className="nav-link" href="#inicio">Inicio</a>
           <a className="nav-link" href="#areas">Áreas</a>
           <a className="nav-link" href="#nosotros">Nosotros</a>
           <a className="nav-link" href="#equipo">Equipo</a>
@@ -44,7 +44,7 @@ export default function Navbar({ scrolled }: { scrolled:boolean }){
       {/* Mobile menu panel */}
       {open && (
         <div className="nav-mobile-panel container">
-          <a className="nav-mobile-link" href="#" onClick={close}>Inicio</a>
+          <a className="nav-mobile-link" href="#inicio" onClick={close}>Inicio</a>
           <a className="nav-mobile-link" href="#areas" onClick={close}>Áreas</a>
           <a className="nav-mobile-link" href="#nosotros" onClick={close}>Nosotros</a>
           <a className="nav-mobile-link" href="#equipo" onClick={close}>Equipo</a>

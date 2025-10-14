@@ -2,11 +2,15 @@ import React from 'react'
 
 export default function Hero(){
   return (
-    <section className="hero">
+    <section id="inicio" className="hero">
       <span className="hero-ornament" />
       <div className="container hero-grid">
         <div>
-          <h1>VV Abogados,Dra. Verónica Vanrell</h1>
+          <h1>
+            VV Abogados
+            <br />
+            Dra. Verónica Vanrell
+          </h1>
           <p>Nuestro compromiso con la excelencia en la protección de la Propiedad Intelectual define cada uno de nuestros pasos. Abordamos cada desafío con determinación y pasión, convencidos de que salvaguardar los derechos intelectuales es fundamental para el triunfo de quienes dedican su creación, ingenio y esfuerzo.</p>
           <div className="hero-cta">
             <a href="#contacto" className="button">Agendar consulta</a>

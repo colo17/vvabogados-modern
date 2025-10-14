@@ -11,6 +11,7 @@
   --shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 html,body,#root{height:100%;overflow-x:hidden}
 body{
   margin:0;
@@ -33,6 +34,11 @@ main{max-width:100%;overflow-x:hidden}
 .button--ghost{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
 .button--whatsapp{background:#25D366;border-color:#25D366}
 .button--whatsapp:hover{background:#22C55E;transform:translateY(-1px)}
+/* Desktop navbar contact button - white background with purple text */
+@media (min-width: 981px){
+  .navbar .button{background:#fff;color:var(--primary);border-color:#fff}
+  .navbar .button:hover{background:#f0f4fb;color:var(--primary-dark);transform:translateY(-1px)}
+}
 .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(198,161,91,.15);color:var(--accent);font-weight:600;font-size:13px}
 .section{padding:80px 0}
 #equipo{padding-top:0}
@@ -98,7 +104,7 @@ main{max-width:100%;overflow-x:hidden}
   .grid.cols-3{grid-template-columns:1fr}
   .grid.cols-2{grid-template-columns:1fr}
   .navbar{padding:12px 0}
-  .hero{min-height:auto; padding-bottom:60px}
+  .hero{min-height:100vh; padding-top:40px; padding-bottom:60px; display:flex; align-items:center}
   .hero h1{font-size:36px; line-height:1.1}
   .hero p{font-size:18px; line-height:1.5}
   .hero .card-body{padding:20px}
@@ -106,7 +112,13 @@ main{max-width:100%;overflow-x:hidden}
   .hero .card-body p{font-size:14px; margin-bottom:12px}
   .hero .card-body ul{font-size:14px; line-height:1.6}
   .hero .card-body li{margin-bottom:8px}
-  .hero{padding-top:40px}
+  /* Mobile hero - center content and hide white card */
+  .hero-grid{text-align:center;justify-items:center}
+  .hero-grid > div:first-child{max-width:90%;margin:0 auto}
+  .hero-grid .card{display:none}
+  .hero-cta{justify-content:center}
+  .hero-cta .button{pointer-events:auto;cursor:pointer;z-index:10;position:relative}
+  .hero-cta .button--ghost{display:none}
 }
 /* Footer */
 .footer{background:#7e57ff;color:#c9d6e7;padding:56px 0}
@@ -282,16 +294,26 @@ textarea.input{min-height:120px;resize:vertical}
   }
   .navbar--scrolled .nav-hamburger span{ background: var(--text); }
 
-  .nav-mobile-panel{ position:absolute; left:0; right:0; top:100%; 
-    position: relative;
+  .nav-mobile-panel{ 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 200;
     background:#ffffff;
-    border-top:1px solid #e6eaf1;
     box-shadow: var(--shadow);
-    padding: 10px 24px 16px;
+    padding: 20px 24px;
   }
   .nav-mobile-link{
-    display:block; padding:12px 0; border-bottom: 1px solid #eef2f7;
-    color: var(--text); font-weight:600;
+    display:block; 
+    padding:15px 0; 
+    border-bottom: 1px solid #eef2f7;
+    color: var(--text); 
+    font-weight:600;
+    text-decoration: none;
+  }
+  .nav-mobile-link:hover{
+    background-color: #f8fafc;
   }
 
   /* Prevent hero overlap by adding top spacing for mobile */
@@ -341,18 +363,10 @@ header.navbar--scrolled{ background:var(--primary) !important; }
   .nav-hamburger{ border-color: rgba(255,255,255,.5); }
 }
 
-@media (max-width: 980px){
-  .nav-mobile-panel::before{
-    content:''; position:absolute; inset:0;
-    background: rgba(255,255,255,.0);
-  }
-}
-
 /* Fix thin white line under navbar on mobile */
 @media (max-width: 980px){
   .navbar{ border-bottom: 0 !important; }
   .navbar::after{ content:none !important; }
-  .nav-mobile-panel{ border-top: 0; } /* no top border to avoid visual line when toggling */
   /* Make brand text stay white even when scrolled on mobile */
   .navbar--scrolled .nav-logo span{ color:#fff !important; }
   .navbar--scrolled .nav-hamburger{ border-color: rgba(255,255,255,.5); }
