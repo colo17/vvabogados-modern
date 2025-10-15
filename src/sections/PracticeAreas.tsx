@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const AREAS = [
   {
@@ -62,23 +63,90 @@ function Icon({ d }:{ d:string }){
 }
 
 export default function PracticeAreas(){
+  const sectionRef = useScrollAnimation()
+  const [currentAreaIndex, setCurrentAreaIndex] = useState(0)
+  
+  const nextArea = () => {
+    setCurrentAreaIndex((prev) => (prev + 1) % AREAS.length)
+  }
+  
+  const prevArea = () => {
+    setCurrentAreaIndex((prev) => (prev - 1 + AREAS.length) % AREAS.length)
+  }
+  
   return (
-    <section id="areas" className="section">
+    <section id="areas" className="section scroll-animate-right" ref={sectionRef}>
       <div className="container">
         <h2 className="section-title">Áreas de práctica</h2>
         <p className="section-desc">Servicios prestados en Uruguay y mediante una red de corresponsales en el exterior.</p>
-        <div className="grid cols-3">
+        
+        {/* Desktop Grid */}
+        <div className="grid cols-3 areas-desktop">
           {AREAS.map((a) => (
             <article className="card" key={a.title}>
               <div className="card-body">
                 <div style={{display:'flex',alignItems:'center',gap:12, marginBottom:10}}>
-                  <Icon d={a.icon} />
-                  <h3 style={{margin:0}}>{a.title}</h3>
+                  <div style={{width:36,height:36,background:'var(--primary)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                      <path d={a.icon}/>
+                    </svg>
+                  </div>
+                  <h3 style={{margin:0,fontSize:18,fontWeight:700,color:'var(--text)'}}>{a.title}</h3>
                 </div>
-                <p style={{margin:0,color:'#6b7a90'}}>{a.desc}</p>
+                <p style={{margin:0,color:'var(--muted)',lineHeight:1.6}}>{a.desc}</p>
               </div>
             </article>
           ))}
+        </div>
+        
+        {/* Mobile Carousel */}
+        <div className="areas-mobile">
+          <div className="mobile-carousel-container">
+            <button 
+              className="mobile-carousel-arrow left" 
+              onClick={prevArea}
+              aria-label="Área anterior"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+            
+            <article className="card mobile-carousel-item">
+              <div className="card-body">
+                <div style={{display:'flex',alignItems:'center',gap:12, marginBottom:10}}>
+                  <div style={{width:36,height:36,background:'var(--primary)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                      <path d={AREAS[currentAreaIndex].icon}/>
+                    </svg>
+                  </div>
+                  <h3 style={{margin:0,fontSize:18,fontWeight:700,color:'var(--text)'}}>{AREAS[currentAreaIndex].title}</h3>
+                </div>
+                <p style={{margin:0,color:'var(--muted)',lineHeight:1.6}}>{AREAS[currentAreaIndex].desc}</p>
+              </div>
+            </article>
+            
+            <button 
+              className="mobile-carousel-arrow right" 
+              onClick={nextArea}
+              aria-label="Siguiente área"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
+          
+          <div className="mobile-carousel-dots">
+            {AREAS.map((_, index) => (
+              <button
+                key={index}
+                className={`mobile-carousel-dot ${index === currentAreaIndex ? 'active' : ''}`}
+                onClick={() => setCurrentAreaIndex(index)}
+                aria-label={`Ir al área ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

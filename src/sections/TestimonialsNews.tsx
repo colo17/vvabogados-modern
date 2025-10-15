@@ -1,4 +1,5 @@
 import React from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const NEWS = [
   { title: 'Guía rápida para registrar tu marca en Uruguay', date: '2025-08-12', url: 'https://vvabogados.com.uy/' },
@@ -26,8 +27,10 @@ const TESTIMONIALS = [
 ]
 
 export default function TestimonialsNews(){
+  const sectionRef = useScrollAnimation()
+  
   return (
-    <section id="noticias" className="section" style={{paddingTop:0}}>
+    <section id="noticias" className="section scroll-animate" style={{paddingTop:0}} ref={sectionRef}>
       <div className="container grid cols-2">
         <div>
           <span className="badge">Testimonios</span>

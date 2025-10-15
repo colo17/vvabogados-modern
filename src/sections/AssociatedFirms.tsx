@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const FIRMS = [
   {
@@ -24,6 +25,7 @@ const FIRMS = [
 export default function AssociatedFirms(){
   const scrollRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
+  const sectionRef = useScrollAnimation();
 
   const calcIndex = () => {
     if (!scrollRef.current) return 0;
@@ -55,7 +57,7 @@ export default function AssociatedFirms(){
   const atEnd = index >= FIRMS.length - 1;
 
   return (
-    <section id="estudios-asociados" className="section" style={{paddingTop:0,paddingBottom:0,position:'relative'}}>
+    <section id="estudios-asociados" className="section scroll-animate-right" style={{paddingTop:0,paddingBottom:0,position:'relative'}} ref={sectionRef}>
       {!atStart && (
         <button className="assoc-arrow left" onClick={()=>scroll('left')} aria-label="Anterior">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

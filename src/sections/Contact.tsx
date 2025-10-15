@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import emailjs from '@emailjs/browser'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 export default function Contact(){
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ export default function Contact(){
     message: ''
   })
   const [isLoading, setIsLoading] = useState(false)
+  const sectionRef = useScrollAnimation()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -44,7 +46,7 @@ export default function Contact(){
   }
 
   return (
-    <section id="contacto" className="section">
+    <section id="contacto" className="section scroll-animate-up" ref={sectionRef}>
       <div className="container grid cols-2">
         <div>
           <span className="badge">Contacto</span>
@@ -91,7 +93,7 @@ export default function Contact(){
           </div>
         </div>
         <div className="card">
-          <img src="/images/Isotipo Blanco.png" alt="VV Abogados" />
+          <img src="/images/Estudio.png" alt="VV Abogados" />
           <div className="card-body">
             <h3 style={{marginTop:0}}>Datos de contacto</h3>
             <p style={{marginBottom:8,color:'#6b7a90'}}>veronicavanrell@vvabogados.com.uy</p>

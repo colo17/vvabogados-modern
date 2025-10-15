@@ -1,11 +1,14 @@
 import React from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 export default function About(){
+  const sectionRef = useScrollAnimation()
+  
   return (
-    <section id="nosotros" className="section" style={{paddingTop:0}}>
+    <section id="nosotros" className="section scroll-animate" style={{paddingTop:0}} ref={sectionRef}>
       <div className="container grid cols-2">
         <div className="card">
-          <img src="/images/equipo1.jpeg" alt="VV Abogados" />
+          <img src="/images/Grupal fondo gris.jpg" alt="VV Abogados" />
         </div>
         <div>
           <span className="badge">Nosotros</span>

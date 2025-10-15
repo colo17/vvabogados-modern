@@ -27,6 +27,18 @@ export default function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
     }
   }
 
+  // Prevent body scroll when modal is open
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
+
   return (
     <div className="modal-backdrop" onClick={handleBackdropClick}>
       <div className="modal-content">
