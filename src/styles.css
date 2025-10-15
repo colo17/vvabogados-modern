@@ -742,39 +742,27 @@ header.navbar--scrolled{ background:var(--primary) !important; }
 }
 
 .mobile-carousel-item {
+  width: calc(100% - 32px);
+  max-width: calc(100% - 32px);
+  flex-shrink: 0;
+  margin: 0 16px;
+}
+
+.mobile-carousel-track {
+  display: flex;
   width: 100%;
-  max-width: 100%;
-  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  transition: transform 0.3s ease-out;
+  will-change: transform;
 }
 
-.mobile-carousel-item.fade-slide-right {
-  animation: fadeSlideRight 0.4s ease-out;
+.mobile-carousel-track.dragging {
+  transition: none;
 }
 
-.mobile-carousel-item.fade-slide-left {
-  animation: fadeSlideLeft 0.4s ease-out;
-}
-
-@keyframes fadeSlideRight {
-  0% {
-    transform: translateX(30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeSlideLeft {
-  0% {
-    transform: translateX(-30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.mobile-carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
 }
 
 .mobile-carousel-dots {

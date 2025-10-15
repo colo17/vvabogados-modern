@@ -148,7 +148,8 @@ export default function Team(){
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
-  const [animationClass, setAnimationClass] = useState('')
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragOffset, setDragOffset] = useState(0)
   const sectionRef = useScrollAnimation()
 
   const openModal = (member: TeamMember) => {
@@ -160,40 +161,52 @@ export default function Team(){
   }
   
   const nextTeamMember = () => {
-    setAnimationClass('fade-slide-left')
     setCurrentTeamIndex((prev) => (prev + 1) % TEAM.length)
-    setTimeout(() => setAnimationClass(''), 400)
   }
   
   const prevTeamMember = () => {
-    setAnimationClass('fade-slide-right')
     setCurrentTeamIndex((prev) => (prev - 1 + TEAM.length) % TEAM.length)
-    setTimeout(() => setAnimationClass(''), 400)
   }
 
   // Swipe handlers
-  const minSwipeDistance = 50
-
   const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null)
     setTouchStart(e.targetTouches[0].clientX)
+    setTouchEnd(null)
+    setIsDragging(true)
+    setDragOffset(0)
   }
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX)
+    if (!touchStart || !isDragging) return
+    
+    const currentTouch = e.targetTouches[0].clientX
+    const diff = currentTouch - touchStart
+    setTouchEnd(currentTouch)
+    setDragOffset(diff)
   }
 
   const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
-    const distance = touchStart - touchEnd
-    const isLeftSwipe = distance > minSwipeDistance
-    const isRightSwipe = distance < -minSwipeDistance
-    
-    if (isLeftSwipe) {
-      nextTeamMember()
-    } else if (isRightSwipe) {
-      prevTeamMember()
+    if (!touchStart || !touchEnd || !isDragging) {
+      setIsDragging(false)
+      setDragOffset(0)
+      return
     }
+    
+    const distance = touchStart - touchEnd
+    const threshold = 50
+
+    if (Math.abs(distance) > threshold) {
+      if (distance > 0) {
+        nextTeamMember()
+      } else {
+        prevTeamMember()
+      }
+    }
+    
+    setIsDragging(false)
+    setDragOffset(0)
+    setTouchStart(null)
+    setTouchEnd(null)
   }
 
   return (
@@ -226,25 +239,35 @@ export default function Team(){
         {/* Mobile Carousel */}
         <div className="team-mobile">
           <div 
-            className="mobile-carousel-container swipeable-carousel"
+            className="mobile-carousel-wrapper swipeable-carousel"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <article 
-              className={`team-card mobile-carousel-item ${animationClass}`}
-              onClick={() => openModal(TEAM[currentTeamIndex])}
-              style={{ cursor: 'pointer' }}
+            <div 
+              className={`mobile-carousel-track ${isDragging ? 'dragging' : ''}`}
+              style={{
+                transform: `translateX(calc(${-currentTeamIndex * 100}% + ${dragOffset}px))`
+              }}
             >
-              <img className="team-img" src={TEAM[currentTeamIndex].img} alt={TEAM[currentTeamIndex].name} />
-              <div className="team-overlay">
-                <h3 className="team-name">{TEAM[currentTeamIndex].name}</h3>
-                <p className="team-role">{TEAM[currentTeamIndex].role}</p>
-                <span className="team-logo" aria-hidden>
-                  <img src="/images/Isotipo Blanco.png" alt="" width="32" height="24" />
-                </span>
-              </div>
-            </article>
+              {TEAM.map((member, index) => (
+                <article 
+                  key={index}
+                  className="team-card mobile-carousel-item"
+                  onClick={() => openModal(member)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <img className="team-img" src={member.img} alt={member.name} />
+                  <div className="team-overlay">
+                    <h3 className="team-name">{member.name}</h3>
+                    <p className="team-role">{member.role}</p>
+                    <span className="team-logo" aria-hidden>
+                      <img src="/images/Isotipo Blanco.png" alt="" width="32" height="24" />
+                    </span>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
           
           <div className="mobile-carousel-dots">

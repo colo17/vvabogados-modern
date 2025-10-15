@@ -67,18 +67,15 @@ export default function PracticeAreas(){
   const [currentAreaIndex, setCurrentAreaIndex] = useState(0)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
-  const [animationClass, setAnimationClass] = useState('')
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragOffset, setDragOffset] = useState(0)
   
   const nextArea = () => {
-    setAnimationClass('fade-slide-left')
     setCurrentAreaIndex((prev) => (prev + 1) % AREAS.length)
-    setTimeout(() => setAnimationClass(''), 400)
   }
   
   const prevArea = () => {
-    setAnimationClass('fade-slide-right')
     setCurrentAreaIndex((prev) => (prev - 1 + AREAS.length) % AREAS.length)
-    setTimeout(() => setAnimationClass(''), 400)
   }
 
   // Function to truncate description for mobile
@@ -89,26 +86,43 @@ export default function PracticeAreas(){
 
   // Touch handlers for swipe functionality
   const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null)
     setTouchStart(e.targetTouches[0].clientX)
+    setTouchEnd(null)
+    setIsDragging(true)
+    setDragOffset(0)
   }
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX)
+    if (!touchStart || !isDragging) return
+    
+    const currentTouch = e.targetTouches[0].clientX
+    const diff = currentTouch - touchStart
+    setTouchEnd(currentTouch)
+    setDragOffset(diff)
   }
 
   const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
+    if (!touchStart || !touchEnd || !isDragging) {
+      setIsDragging(false)
+      setDragOffset(0)
+      return
+    }
     
     const distance = touchStart - touchEnd
-    const isLeftSwipe = distance > 50
-    const isRightSwipe = distance < -50
+    const threshold = 50
 
-    if (isLeftSwipe) {
-      nextArea()
-    } else if (isRightSwipe) {
-      prevArea()
+    if (Math.abs(distance) > threshold) {
+      if (distance > 0) {
+        nextArea()
+      } else {
+        prevArea()
+      }
     }
+    
+    setIsDragging(false)
+    setDragOffset(0)
+    setTouchStart(null)
+    setTouchEnd(null)
   }
   
   return (
@@ -153,28 +167,37 @@ export default function PracticeAreas(){
         {/* Mobile Carousel */}
         <div className="areas-mobile">
           <div 
-            className="mobile-carousel-container swipeable-carousel"
+            className="mobile-carousel-wrapper swipeable-carousel"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <article className={`card mobile-carousel-item practice-area-mobile-card ${animationClass}`}>
-              <div className="card-body">
-                <div className="practice-area-mobile-header">
-                  <div className="practice-area-mobile-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-                      <path d={AREAS[currentAreaIndex].icon}/>
-                    </svg>
+            <div 
+              className={`mobile-carousel-track ${isDragging ? 'dragging' : ''}`}
+              style={{
+                transform: `translateX(calc(${-currentAreaIndex * 100}% + ${dragOffset}px))`
+              }}
+            >
+              {AREAS.map((area, index) => (
+                <article key={index} className="card mobile-carousel-item practice-area-mobile-card">
+                  <div className="card-body">
+                    <div className="practice-area-mobile-header">
+                      <div className="practice-area-mobile-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                          <path d={area.icon}/>
+                        </svg>
+                      </div>
+                      <h3 className="practice-area-mobile-title">
+                        {area.title}
+                      </h3>
+                    </div>
+                    <p className="practice-area-mobile-desc">
+                      {truncateText(area.desc)}
+                    </p>
                   </div>
-                  <h3 className="practice-area-mobile-title">
-                    {AREAS[currentAreaIndex].title}
-                  </h3>
-                </div>
-                <p className="practice-area-mobile-desc">
-                  {truncateText(AREAS[currentAreaIndex].desc)}
-                </p>
-              </div>
-            </article>
+                </article>
+              ))}
+            </div>
           </div>
           
           <div className="mobile-carousel-dots">
