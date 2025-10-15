@@ -9,15 +9,43 @@ const OFFICE_IMAGES = [
 
 export default function Hero(){
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [animationKey, setAnimationKey] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
         (prevIndex + 1) % OFFICE_IMAGES.length
       )
-    }, 5000) // Change image every 5 seconds
+    }, 2500) // Change image every 2.5 seconds
 
     return () => clearInterval(interval)
+  }, [])
+
+  // Effect to retrigger animations when hero comes into view
+  useEffect(() => {
+    const heroElement = document.getElementById('inicio')
+    if (!heroElement) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            // Retrigger animations by updating the key
+            setAnimationKey(prev => prev + 1)
+          }
+        })
+      },
+      { 
+        threshold: 0.5,
+        rootMargin: '-10% 0px -10% 0px'
+      }
+    )
+
+    observer.observe(heroElement)
+
+    return () => {
+      observer.unobserve(heroElement)
+    }
   }, [])
 
   return (
@@ -40,11 +68,11 @@ export default function Hero(){
       
       {/* Content */}
       <div className="container hero-content">
-        <div className="hero-logo hero-logo-animated">
+        <div key={`logo-${animationKey}`} className="hero-logo hero-logo-animated">
           <img src="/images/Logo Horizontal Blanco.png" alt="VV Abogados" />
         </div>
-        <p className="hero-text-animated">Nuestro compromiso con la excelencia en la protección de la Propiedad Intelectual define cada uno de nuestros pasos, abordamos cada desafío con determinación y pasión.</p>
-        <div className="hero-cta hero-cta-animated">
+        <p key={`text-${animationKey}`} className="hero-text-animated">Nuestro compromiso con la excelencia en la protección de la Propiedad Intelectual define cada uno de nuestros pasos, abordamos cada desafío con determinación y pasión.</p>
+        <div key={`cta-${animationKey}`} className="hero-cta hero-cta-animated">
           <a href="#contacto" className="button">Agendar consulta</a>
           <a href="#areas" className="button button--ghost">Áreas de práctica</a>
         </div>

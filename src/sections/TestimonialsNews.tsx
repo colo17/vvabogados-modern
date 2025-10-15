@@ -34,7 +34,7 @@ export default function TestimonialsNews(){
       <div className="container grid cols-2">
         <div>
           <span className="badge">Testimonios</span>
-          <h2 className="section-title">#LoTomamosPersonal</h2>
+          <h2 className="section-title">Casos de Éxito</h2>
           <div className="grid">
             {TESTIMONIALS.map((t, i) => (
               <div className="card" key={i}>

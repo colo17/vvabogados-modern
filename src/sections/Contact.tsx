@@ -52,7 +52,7 @@ export default function Contact(){
       <div className="container grid cols-2">
         <div>
           <span className="badge">Contacto</span>
-          <h2 className="section-title">Hablemos de tu proyecto</h2>
+          <h2 className="section-title">Contáctanos</h2>
           <p className="section-desc">Ponte en contacto con nosotros, envianos un email y responderemos a la brevedad</p>
           <div className="card">
             <div className="card-body">

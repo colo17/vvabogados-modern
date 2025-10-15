@@ -957,7 +957,6 @@ header.navbar--scrolled{ background:var(--primary) !important; }
 
 .modal-body {
   padding: 40px;
-  padding-bottom: 80px;
 }
 
 .modal-close {
@@ -1007,9 +1006,9 @@ header.navbar--scrolled{ background:var(--primary) !important; }
 }
 
 .modal-social {
-  position: absolute;
-  bottom: 20px;
-  left: 40px;
+  margin-top: 6px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .modal-linkedin {
@@ -1094,7 +1093,7 @@ header.navbar--scrolled{ background:var(--primary) !important; }
   }
   
   .modal-body {
-    padding: 24px 20px 70px 20px;
+    padding: 24px 20px;
     overflow-y: auto;
     flex: 1;
     position: relative;
@@ -1106,10 +1105,9 @@ header.navbar--scrolled{ background:var(--primary) !important; }
   }
   
   .modal-social {
-    position: absolute;
-    bottom: 16px;
-    left: 20px;
-    z-index: 100002;
+    margin-top: 6px;
+    display: flex;
+    justify-content: flex-start;
   }
   
   .modal-name {
