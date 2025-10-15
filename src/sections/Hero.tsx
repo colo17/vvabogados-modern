@@ -69,7 +69,16 @@ export default function Hero(){
       {/* Content */}
       <div className="container hero-content">
         <div key={`logo-${animationKey}`} className="hero-logo hero-logo-animated">
-          <img src="/images/Logo Horizontal Blanco.png" alt="VV Abogados" />
+          <img 
+            src="/images/Logo Horizontal Blanco.png" 
+            alt="VV Abogados" 
+            className="hero-logo-desktop"
+          />
+          <img 
+            src="/images/Logo Vertical Blanco.png" 
+            alt="VV Abogados" 
+            className="hero-logo-mobile"
+          />
         </div>
         <p key={`text-${animationKey}`} className="hero-text-animated">Nuestro compromiso con la excelencia en la protección de la Propiedad Intelectual define cada uno de nuestros pasos, abordamos cada desafío con determinación y pasión.</p>
         <div key={`cta-${animationKey}`} className="hero-cta hero-cta-animated">

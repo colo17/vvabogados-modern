@@ -149,6 +149,8 @@ section[id] {
 .hero-content{text-align:center;max-width:800px;margin:0 auto;position:relative;z-index:3}
 .hero-logo{margin:0 0 40px;display:flex;justify-content:center}
 .hero-logo img{height:160px;max-width:850px;width:auto}
+.hero-logo-mobile{display:none}
+.hero-logo-desktop{display:block}
 .hero h1{font-size:54px;line-height:1.05;margin:0 0 16px}
 .hero p{font-size:20px;color:#e7eef6;margin:0 0 28px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
@@ -242,7 +244,9 @@ section[id] {
 .grid.cols-3 .card:nth-child(10){grid-column:1/-1;max-width:600px;margin:0 auto}
 @media (max-width: 980px){
   .hero-content{text-align:center;max-width:100%;padding:0 20px}
-  .hero-logo img{height:60px;max-width:280px}
+  .hero-logo img{height:120px;max-width:400px}
+  .hero-logo-desktop{display:none}
+  .hero-logo-mobile{display:block}
   .grid.cols-3{grid-template-columns:1fr}
   .grid.cols-2{grid-template-columns:1fr}
   .navbar{padding:12px 0}
@@ -264,7 +268,7 @@ section[id] {
   
   .hero{min-height:100vh; padding-top:40px; padding-bottom:60px; display:flex; align-items:center}
   .hero h1{font-size:36px; line-height:1.1}
-  .hero p{font-size:18px; line-height:1.5}
+  .hero p{font-size:16px; line-height:1.5}
   
   .hero-grid{text-align:center;justify-items:center}
   .hero-grid > div:first-child{max-width:90%;margin:0 auto}

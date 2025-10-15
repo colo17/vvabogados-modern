@@ -25,7 +25,7 @@ const TEAM: TeamMember[] = [
     jobDescription: 'La pasión por lo que hago me impulsa en cada acción que emprendo. Creo firmemente que proteger la propiedad intelectual es un paso esencial hacia el éxito para aquellos que invierten su tiempo, esfuerzo y creatividad.',
     secondRole: 'Socia Directora de GP ABOGADOS',
     secondJobDescription: 'Socia directora desde el 1ro de Diciembre del 2021.',
-    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+    linkedinUrl: 'https://www.linkedin.com/in/veronica-vanrell-87863799/'
   },
   { 
     name: 'Dr. Gumer Pérez', 
@@ -47,7 +47,7 @@ const TEAM: TeamMember[] = [
     jobDescription: 'Desde mi rol de escribana, busco generar un espacio de escucha e intercambio personalizado con cada cliente para poder encontrar juntos la mejor solución ante un eventual problema, siempre velando por la seguridad jurídica a la hora de proteger sus intereses.',
     secondRole: 'Asociada de GP ABOGADOS',
     secondJobDescription: 'Asociada desde el 1ro de Diciembre del 2021.',
-    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+    linkedinUrl: 'https://www.linkedin.com/in/ximena-fossati-crosta-357a26a9/'
   },
   { 
     name: 'Cra. Yoanna Igoa', 
@@ -58,7 +58,7 @@ const TEAM: TeamMember[] = [
     jobDescription: 'Como contadora cuento con un enfoque único en la protección y gestión de activos intangibles. Mi objetivo es brindarte asesoramiento experto para proteger tus creaciones, innovaciones y marcas comerciales de manera eficiente y rentable.',
     secondRole: 'Asociada de GP ABOGADOS',
     secondJobDescription: 'Asociada desde el 1ro de Diciembre del 2021.',
-    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+    linkedinUrl: 'https://www.linkedin.com/in/yoanna-igoa-43b7528/'
   },
   { 
     name: 'Paolo Duce', 
@@ -67,7 +67,7 @@ const TEAM: TeamMember[] = [
     modalImg: '/images/Pao Duce 2.jpg',
     formation: 'Abogado egresado de la Universidad Católica del Uruguay.',
     jobDescription: 'Lo fundamental en nuestra profesión es la comunicación franca y constante con nuestros clientes, logrando generar en ellos un grado de confianza tal que puedan delegar en nuestro estudio todas sus preocupaciones en el ámbito legal.',
-    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+    linkedinUrl: 'https://www.linkedin.com/in/paolo-duce-aa8906233/'
   },
   { 
     name: 'Juan Manuel Balsas Vanrell', 
@@ -76,7 +76,7 @@ const TEAM: TeamMember[] = [
     modalImg: '/images/Juanma Balsas.jpg',
     formation: 'Estudiante de la Facultad de Derecho de la República Oriental del Uruguay.',
     jobDescription: 'Desempeño mi trabajo en el departamento de propiedad intelectual, incursionando a diario en nuevos desafíos adquiriendo experiencia en los aspectos emergentes de la misma, con el fin de especializar mi perfil profesional de cara al futuro.',
-    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+    linkedinUrl: 'https://www.linkedin.com/in/juan-manuel-balsas-vanrell-451965307/'
   },
   { 
     name: 'Ana Inés Gayon', 
@@ -85,7 +85,7 @@ const TEAM: TeamMember[] = [
     modalImg: '/images/Ana Inés Gayón 2.jpg',
     formation: 'Profesional con trayectoria en compañía multinacional perteneciente al sector cosmética y belleza. Desarrollo laboral vinculado al área de marketing, involucrando responsabilidades tales como planificación de campañas, lanzamientos, organización de eventos, animaciones comerciales, etc. Formación y experiencia en Hotelería, y contacto con clientes de diversos sectores. Formación y experiencia en traductorado idioma Francés.',
     jobDescription: 'Brindamos asesoramiento legal en propiedad intelectual con un enfoque integral y estratégico. Contamos con experiencia en el sector cosmética y belleza, en áreas como marketing, lanzamientos y eventos, lo que nos permite comprender las necesidades reales de marcas y emprendedores. Sumamos formación en Hotelería y Traductorado de Francés, ofreciendo un trato cercano, profesional y con alcance internacional.',
-    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+    linkedinUrl: 'https://www.linkedin.com/in/anain%C3%A9sgay%C3%B3n/'
   },
   { 
     name: 'Martina Brovia', 
@@ -94,7 +94,7 @@ const TEAM: TeamMember[] = [
     modalImg: '/images/Marti Brovia 2.jpg',
     formation: 'Estudiante de la Facultad de Derecho de la República Oriental del Uruguay.',
     jobDescription: 'Mi formación académica en Derecho me permite estar en constante aprendizaje y actualización de las normativas legales vigentes. En mi rol como procuradora, gestiono diligentemente los trámites judiciales y administrativos, asegurando que cada proceso se realice de manera eficiente y oportuna. Estoy comprometida con la excelencia y dedicada a proteger y defender los intereses de nuestros clientes, contribuyendo significativamente al éxito de nuestro estudio.',
-    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+    linkedinUrl: 'https://www.linkedin.com/in/martina-brovia-goday-966973256/'
   },
   { 
     name: 'Dra. María Laura Escudero', 
@@ -103,7 +103,7 @@ const TEAM: TeamMember[] = [
     modalImg: '/images/María Laura Escudero 2.jpg',
     formation: 'Egresada de la Maestría en Derecho Empresarial de la Universidad de Montevideo (2020). En el año 2019 cursó Program on Negotiation at Harvard Law School. Integrante de la Cátedra de Derecho Internacional Privado (desde 2012, UDELAR, Salto).',
     jobDescription: 'Participa activamente en el área de Negociación a los efectos de prevenir conflictos así como en la solución de los mismos. Es Abogada litigante ante Litigios comerciales, civiles y laborales. Se destaca por su gran capacidad de negociación y efectividad en los casos que tiene a su cargo, acompañando de manera personalizada y rigurosa a sus clientes.',
-    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+    linkedinUrl: 'https://www.linkedin.com/in/mar%C3%ADalauraescudero/'
   },
   { 
     name: 'Dr. Andrés Mendive', 
@@ -112,7 +112,7 @@ const TEAM: TeamMember[] = [
     modalImg: '/images/Andrés Mendive.jpg',
     formation: 'Abogado egresado de la Facultad de Derecho de la República Oriental del Uruguay.',
     jobDescription: 'Asesoramiento especializado, mentoría y formación.',
-    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+    linkedinUrl: 'https://www.linkedin.com/in/andr%C3%A9s-mendive-dubourdieu-204b8423/'
   },
   { 
     name: 'Ing. Cecilia Macias', 
@@ -139,7 +139,7 @@ const TEAM: TeamMember[] = [
     modalImg: '/images/Sofi Biatturi 2.jpg',
     formation: 'Estudiante de Derecho en la Universidad de Montevideo.',
     jobDescription: 'Como estudiante de derecho apasionada por la comunicación, me entusiasma formar parte de este estudio jurídico especializado en propiedad intelectual, donde puedo fusionar mi amor por la ley y mi interés por la creación y protección de contenido único y creativo.',
-    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+    linkedinUrl: 'https://www.linkedin.com/in/sof%C3%ADa-biatturi-80287122a/'
   },
 ]
 
