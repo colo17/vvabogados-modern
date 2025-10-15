@@ -78,13 +78,11 @@ export default function PracticeAreas(){
     setCurrentAreaIndex((prev) => (prev - 1 + AREAS.length) % AREAS.length)
   }
 
-  // Function to truncate description for mobile
   const truncateText = (text: string, maxLength: number = 180) => {
     if (text.length <= maxLength) return text
     return text.substring(0, maxLength).trim() + '...'
   }
 
-  // Touch handlers for swipe functionality
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX)
     setTouchEnd(null)
@@ -134,7 +132,6 @@ export default function PracticeAreas(){
         {/* Desktop Grid */}
         <div className="grid cols-3 areas-desktop">
           {AREAS.map((a, index) => {
-            // Create individual scroll animation for each card
             const PracticeAreaCard = () => {
               const cardRef = useScrollAnimation()
               

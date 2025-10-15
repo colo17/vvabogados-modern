@@ -16,12 +16,11 @@ export default function Hero(){
       setCurrentImageIndex((prevIndex) => 
         (prevIndex + 1) % OFFICE_IMAGES.length
       )
-    }, 2500) // Change image every 2.5 seconds
+    }, 2500)
 
     return () => clearInterval(interval)
   }, [])
 
-  // Effect to retrigger animations when hero comes into view
   useEffect(() => {
     const heroElement = document.getElementById('inicio')
     if (!heroElement) return
@@ -30,7 +29,6 @@ export default function Hero(){
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-            // Retrigger animations by updating the key
             setAnimationKey(prev => prev + 1)
           }
         })

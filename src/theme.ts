@@ -1,9 +1,8 @@
 export const theme = {
-  // Palette sampled to match vvabogados.com.uy vibe (adjust if needed)
   colors: {
-    primary: '#6441a4', // deep navy
+    primary: '#6441a4',
     primaryDark: '#53378c',
-    accent: '#c6a15b',  // golden
+    accent: '#c6a15b',
     bg: '#f5f7fa',
     text: '#0f1b2a',
     muted: '#6b7a90',
