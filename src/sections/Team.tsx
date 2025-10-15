@@ -146,6 +146,9 @@ const TEAM: TeamMember[] = [
 export default function Team(){
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
+  const [animationClass, setAnimationClass] = useState('')
   const sectionRef = useScrollAnimation()
 
   const openModal = (member: TeamMember) => {
@@ -157,11 +160,40 @@ export default function Team(){
   }
   
   const nextTeamMember = () => {
+    setAnimationClass('fade-slide-left')
     setCurrentTeamIndex((prev) => (prev + 1) % TEAM.length)
+    setTimeout(() => setAnimationClass(''), 400)
   }
   
   const prevTeamMember = () => {
+    setAnimationClass('fade-slide-right')
     setCurrentTeamIndex((prev) => (prev - 1 + TEAM.length) % TEAM.length)
+    setTimeout(() => setAnimationClass(''), 400)
+  }
+
+  // Swipe handlers
+  const minSwipeDistance = 50
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+    
+    if (isLeftSwipe) {
+      nextTeamMember()
+    } else if (isRightSwipe) {
+      prevTeamMember()
+    }
   }
 
   return (
@@ -193,19 +225,14 @@ export default function Team(){
         
         {/* Mobile Carousel */}
         <div className="team-mobile">
-          <div className="mobile-carousel-container">
-            <button 
-              className="mobile-carousel-arrow left" 
-              onClick={prevTeamMember}
-              aria-label="Miembro anterior"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-            </button>
-            
+          <div 
+            className="mobile-carousel-container swipeable-carousel"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <article 
-              className="team-card mobile-carousel-item" 
+              className={`team-card mobile-carousel-item ${animationClass}`}
               onClick={() => openModal(TEAM[currentTeamIndex])}
               style={{ cursor: 'pointer' }}
             >
@@ -218,16 +245,6 @@ export default function Team(){
                 </span>
               </div>
             </article>
-            
-            <button 
-              className="mobile-carousel-arrow right" 
-              onClick={nextTeamMember}
-              aria-label="Siguiente miembro"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </button>
           </div>
           
           <div className="mobile-carousel-dots">

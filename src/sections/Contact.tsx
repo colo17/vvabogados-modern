@@ -6,6 +6,7 @@ export default function Contact(){
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: ''
   })
   const [isLoading, setIsLoading] = useState(false)
@@ -29,6 +30,7 @@ export default function Contact(){
         {
           from_name: formData.name,
           from_email: formData.email,
+          phone: formData.phone,
           message: formData.message,
           to_email: 'veronicavanrell@vvabogados.com.uy'
         },
@@ -36,7 +38,7 @@ export default function Contact(){
       )
       
       alert('¡Mensaje enviado exitosamente! Te responderemos a la brevedad.')
-      setFormData({ name: '', email: '', message: '' })
+      setFormData({ name: '', email: '', phone: '', message: '' })
     } catch (error) {
       console.error('Error sending email:', error)
       alert('Error al enviar el mensaje. Por favor, intenta nuevamente o contactanos directamente.')
@@ -73,6 +75,15 @@ export default function Contact(){
                   className="input" 
                   placeholder="tu@email.com" 
                   required
+                />
+                <label className="label" style={{marginTop:12}}>Teléfono</label>
+                <input 
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="input" 
+                  placeholder="(+598) 99 123 456" 
                 />
                 <label className="label" style={{marginTop:12}}>Mensaje</label>
                 <textarea 

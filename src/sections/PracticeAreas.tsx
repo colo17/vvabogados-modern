@@ -65,19 +65,50 @@ function Icon({ d }:{ d:string }){
 export default function PracticeAreas(){
   const sectionRef = useScrollAnimation()
   const [currentAreaIndex, setCurrentAreaIndex] = useState(0)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
+  const [animationClass, setAnimationClass] = useState('')
   
   const nextArea = () => {
+    setAnimationClass('fade-slide-left')
     setCurrentAreaIndex((prev) => (prev + 1) % AREAS.length)
+    setTimeout(() => setAnimationClass(''), 400)
   }
   
   const prevArea = () => {
+    setAnimationClass('fade-slide-right')
     setCurrentAreaIndex((prev) => (prev - 1 + AREAS.length) % AREAS.length)
+    setTimeout(() => setAnimationClass(''), 400)
   }
 
   // Function to truncate description for mobile
   const truncateText = (text: string, maxLength: number = 180) => {
     if (text.length <= maxLength) return text
     return text.substring(0, maxLength).trim() + '...'
+  }
+
+  // Touch handlers for swipe functionality
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > 50
+    const isRightSwipe = distance < -50
+
+    if (isLeftSwipe) {
+      nextArea()
+    } else if (isRightSwipe) {
+      prevArea()
+    }
   }
   
   return (
@@ -121,18 +152,13 @@ export default function PracticeAreas(){
         
         {/* Mobile Carousel */}
         <div className="areas-mobile">
-          <div className="mobile-carousel-container">
-            <button 
-              className="mobile-carousel-arrow left" 
-              onClick={prevArea}
-              aria-label="Área anterior"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-            </button>
-            
-            <article className="card mobile-carousel-item practice-area-mobile-card">
+          <div 
+            className="mobile-carousel-container swipeable-carousel"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <article className={`card mobile-carousel-item practice-area-mobile-card ${animationClass}`}>
               <div className="card-body">
                 <div className="practice-area-mobile-header">
                   <div className="practice-area-mobile-icon">
@@ -149,16 +175,6 @@ export default function PracticeAreas(){
                 </p>
               </div>
             </article>
-            
-            <button 
-              className="mobile-carousel-arrow right" 
-              onClick={nextArea}
-              aria-label="Siguiente área"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </button>
           </div>
           
           <div className="mobile-carousel-dots">
