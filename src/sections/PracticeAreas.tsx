@@ -73,6 +73,12 @@ export default function PracticeAreas(){
   const prevArea = () => {
     setCurrentAreaIndex((prev) => (prev - 1 + AREAS.length) % AREAS.length)
   }
+
+  // Function to truncate description for mobile
+  const truncateText = (text: string, maxLength: number = 180) => {
+    if (text.length <= maxLength) return text
+    return text.substring(0, maxLength).trim() + '...'
+  }
   
   return (
     <section id="areas" className="section scroll-animate-right" ref={sectionRef}>
@@ -82,21 +88,35 @@ export default function PracticeAreas(){
         
         {/* Desktop Grid */}
         <div className="grid cols-3 areas-desktop">
-          {AREAS.map((a) => (
-            <article className="card" key={a.title}>
-              <div className="card-body">
-                <div style={{display:'flex',alignItems:'center',gap:12, marginBottom:10}}>
-                  <div style={{width:36,height:36,background:'var(--primary)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center'}}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-                      <path d={a.icon}/>
-                    </svg>
+          {AREAS.map((a, index) => {
+            // Create individual scroll animation for each card
+            const PracticeAreaCard = () => {
+              const cardRef = useScrollAnimation()
+              
+              return (
+                <article 
+                  className={`card scroll-animate-up`} 
+                  key={a.title} 
+                  ref={cardRef}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="card-body">
+                    <div style={{display:'flex',alignItems:'center',gap:12, marginBottom:10}}>
+                      <div style={{width:36,height:36,background:'var(--primary)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                          <path d={a.icon}/>
+                        </svg>
+                      </div>
+                      <h3 style={{margin:0,fontSize:18,fontWeight:700,color:'var(--text)'}}>{a.title}</h3>
+                    </div>
+                    <p style={{margin:0,color:'var(--muted)',lineHeight:1.6}}>{a.desc}</p>
                   </div>
-                  <h3 style={{margin:0,fontSize:18,fontWeight:700,color:'var(--text)'}}>{a.title}</h3>
-                </div>
-                <p style={{margin:0,color:'var(--muted)',lineHeight:1.6}}>{a.desc}</p>
-              </div>
-            </article>
-          ))}
+                </article>
+              )
+            }
+            
+            return <PracticeAreaCard key={a.title} />
+          })}
         </div>
         
         {/* Mobile Carousel */}
@@ -112,17 +132,21 @@ export default function PracticeAreas(){
               </svg>
             </button>
             
-            <article className="card mobile-carousel-item">
+            <article className="card mobile-carousel-item practice-area-mobile-card">
               <div className="card-body">
-                <div style={{display:'flex',alignItems:'center',gap:12, marginBottom:10}}>
-                  <div style={{width:36,height:36,background:'var(--primary)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                <div className="practice-area-mobile-header">
+                  <div className="practice-area-mobile-icon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
                       <path d={AREAS[currentAreaIndex].icon}/>
                     </svg>
                   </div>
-                  <h3 style={{margin:0,fontSize:18,fontWeight:700,color:'var(--text)'}}>{AREAS[currentAreaIndex].title}</h3>
+                  <h3 className="practice-area-mobile-title">
+                    {AREAS[currentAreaIndex].title}
+                  </h3>
                 </div>
-                <p style={{margin:0,color:'var(--muted)',lineHeight:1.6}}>{AREAS[currentAreaIndex].desc}</p>
+                <p className="practice-area-mobile-desc">
+                  {truncateText(AREAS[currentAreaIndex].desc)}
+                </p>
               </div>
             </article>
             

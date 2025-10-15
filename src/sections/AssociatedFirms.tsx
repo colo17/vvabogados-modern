@@ -3,12 +3,6 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const FIRMS = [
   {
-    name: 'Pérez del Castillo',
-    url: 'https://www.perezdelcastillo.com',
-    img: '/images/perezdelcastillo.jpg',
-    blurb: 'Dirigido por el Dr. Federico Pérez del Castillo. Especial foco en inversiones, compraventa de empresas (M&A), real estate y asesoramiento sucesorio, combinando visión estratégica y solución práctica de conflictos.'
-  },
-  {
     name: 'LegalMind',
     url: 'https://www.legalmind.com.uy',
     img: '/images/legalmind.webp',
@@ -19,6 +13,12 @@ const FIRMS = [
     url: 'https://www.cauceconsultores.uy',
     img: '/images/cauceconsultores.jpg',
     blurb: 'Dirigido por el Dr. Álvaro Martín da Silva Falcón. Experiencia en litigios, arbitraje y asesoramiento empresarial, incluyendo justicia deportiva (AUF). Trabajo coordinado con equipos internos para resultados efectivos.'
+  },
+  {
+    name: 'Pérez del Castillo',
+    url: 'https://www.perezdelcastillo.com',
+    img: '/images/perezdelcastillo.webp',
+    blurb: 'Dirigido por el Dr. Federico Pérez del Castillo. Especial foco en inversiones, compraventa de empresas (M&A), real estate y asesoramiento sucesorio, combinando visión estratégica y solución práctica de conflictos.'
   },
 ]
 
