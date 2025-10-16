@@ -7,21 +7,37 @@ export default function Navbar({ scrolled }: { scrolled:boolean }){
   const close = () => setOpen(false)
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+    <header 
+      className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}
+    >
       <div className="container navbar-inner">
         <a href="#inicio" className="nav-logo" onClick={close}>
-          <img src="/images/Logo Horizontal Blanco.png" alt="VV Abogados" height="32" />
+          <img 
+            src={scrolled ? "/images/Logo Horizontal Violeta.png" : "/images/Logo Horizontal Blanco.png"} 
+            alt="VV Abogados" 
+            height="32" 
+          />
         </a>
 
         {/* Desktop nav */}
         <nav className="nav-links nav-desktop">
-          <a className="nav-link" href="#inicio">Inicio</a>
-          <a className="nav-link" href="#areas">Áreas</a>
-          <a className="nav-link" href="#nosotros">Nosotros</a>
-          <a className="nav-link" href="#equipo">Equipo</a>
-          <a className="nav-link" href="#noticias">Noticias</a>
-          <a className="nav-link" href="#estudios-asociados">Estudios asociados</a>
-          <a className="button" href="#contacto">Contacto</a>
+          <a className="nav-link" href="#inicio" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Inicio</a>
+          <a className="nav-link" href="#areas" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Áreas</a>
+          <a className="nav-link" href="#nosotros" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Nosotros</a>
+          <a className="nav-link" href="#equipo" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Equipo</a>
+          <a className="nav-link" href="#noticias" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Noticias</a>
+          <a className="nav-link" href="#estudios-asociados" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Estudios asociados</a>
+          <a 
+            className="button" 
+            href="#contacto"
+            style={{
+              background: scrolled ? '#6441a4' : '#fff',
+              color: scrolled ? '#fff' : '#6441a4',
+              borderColor: scrolled ? '#6441a4' : '#fff'
+            }}
+          >
+            Contacto
+          </a>
         </nav>
 
         {/* Mobile hamburger */}
@@ -30,10 +46,13 @@ export default function Navbar({ scrolled }: { scrolled:boolean }){
           aria-label="Abrir menú"
           aria-expanded={open}
           onClick={toggle}
+          style={{
+            borderColor: scrolled ? 'rgba(100, 65, 164, 0.35)' : 'rgba(255,255,255,.35)'
+          }}
         >
-          <span/>
-          <span/>
-          <span/>
+          <span style={{ background: scrolled ? '#6441a4' : '#fff' }}/>
+          <span style={{ background: scrolled ? '#6441a4' : '#fff' }}/>
+          <span style={{ background: scrolled ? '#6441a4' : '#fff' }}/>
         </button>
       </div>
 

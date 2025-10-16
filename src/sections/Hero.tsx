@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
-const OFFICE_IMAGES = [
-  '/images/Oficina1.jpg',
-  '/images/Oficina2.jpg',
-  '/images/Oficina3.jpg',
-  '/images/Oficina4.jpg'
+const TEAM_IMAGES = [
+  '/images/team1.jpg',
+  '/images/team2.jpg',
+  '/images/team3.jpg',
+  '/images/team4.jpg',
+  '/images/team5.jpg',
+  '/images/team6.jpg'
 ]
 
 export default function Hero(){
@@ -14,7 +16,7 @@ export default function Hero(){
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
-        (prevIndex + 1) % OFFICE_IMAGES.length
+        (prevIndex + 1) % TEAM_IMAGES.length
       )
     }, 2500)
 
@@ -50,7 +52,7 @@ export default function Hero(){
     <section id="inicio" className="hero hero-animated hero-carousel">
       {/* Image Carousel Background */}
       <div className="hero-carousel-container">
-        {OFFICE_IMAGES.map((image, index) => (
+        {TEAM_IMAGES.map((image, index) => (
           <div
             key={index}
             className={`hero-carousel-slide ${
