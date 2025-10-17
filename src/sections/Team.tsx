@@ -141,6 +141,42 @@ const TEAM: TeamMember[] = [
     jobDescription: 'Como estudiante de derecho apasionada por la comunicación, me entusiasma formar parte de este estudio jurídico especializado en propiedad intelectual, donde puedo fusionar mi amor por la ley y mi interés por la creación y protección de contenido único y creativo.',
     linkedinUrl: 'https://www.linkedin.com/in/sof%C3%ADa-biatturi-80287122a/'
   },
+  { 
+    name: 'Guillermina Balsas', 
+    role: 'Departamento de PI', 
+    img: '/images/Guille Balsas 1.jpg',
+    modalImg: '/images/Guille Balsas 2.jpg',
+    formation: 'Estudiante avanzada de la Facultad de Derecho de la Universidad de la República.',
+    jobDescription: 'Integro el departamento de propiedad intelectual apoyando la preparación de búsquedas, solicitudes y renovaciones de marcas, procurando una comunicación cercana con nuestros clientes emprendedores y pymes.',
+    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+  },
+  { 
+    name: 'Delfina Lacasa', 
+    role: 'Departamento Jurídico', 
+    img: '/images/Delfi Lacasa 1.jpg',
+    modalImg: '/images/Delfi Lacasa 2.jpg',
+    formation: 'Estudiante de la Facultad de Derecho de la Universidad Católica del Uruguay.',
+    jobDescription: 'Acompaño al equipo jurídico en el seguimiento de expedientes, la redacción de escritos y la coordinación de gestiones administrativas para brindar respuestas ágiles y personalizadas.',
+    linkedinUrl: 'https://www.linkedin.com/company/vv-abogados/'
+  },
+  { 
+    name: 'Luciano Rodal', 
+    role: 'Departamento Jurídico', 
+    img: '/images/Lulo Rodal 1.jpg',
+    modalImg: '/images/Lulo Rodal 2.jpg',
+    formation: 'Estudiante avanzado de la Facultad de Derecho de la Universidad de Montevideo.',
+    jobDescription: 'Desde el departamento jurídico colaboro en audiencias, diligencias y elaboración de informes, articulando con organismos públicos y privados para asegurar procesos eficientes.',
+    linkedinUrl: 'https://www.linkedin.com/in/luciano-rodal-229744233/'
+  },
+  { 
+    name: 'Agustín Gorla Félix', 
+    role: 'Departamento de Patentes', 
+    img: '/images/Agus Gorla 1.jpg',
+    modalImg: '/images/Agus Gorla 2.jpg',
+    formation: 'Estudiante de Ingeniería en Biotecnología en la Universidad ORT Uruguay.',
+    jobDescription: 'Formo parte del departamento de patentes, analizando desarrollos tecnológicos, preparando documentación técnica y asistiendo en búsquedas del estado de la técnica para proteger las innovaciones de nuestros clientes.',
+    linkedinUrl: 'https://www.linkedin.com/in/agust%C3%ADn-gorla-f%C3%A9lix-193633356/'
+  },
 ]
 
 export default function Team(){
