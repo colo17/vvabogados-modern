@@ -1,60 +1,63 @@
 import React, { useState } from 'react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { useLanguage } from '../i18n'
+
+type Lang = 'es' | 'en'
 
 const AREAS = [
   {
-    title: 'Registro de Marcas y Patentes',
-    desc: 'Ambos registros aseguran que los derechos de propiedad intelectual sean reconocidos y protegidos legalmente, fortaleciendo la posición en el mercado y facilitando la defensa contra infracciones.',
+    title: { es: 'Registro de Marcas y Patentes', en: 'Trademark and Patent filing' },
+    desc: { es: 'Ambos registros aseguran que los derechos de propiedad intelectual sean reconocidos y protegidos legalmente, fortaleciendo la posición en el mercado y facilitando la defensa contra infracciones.', en: 'Both filings ensure IP rights are legally recognized and protected, strengthening market position and enabling enforcement against infringement.' },
     icon: 'M5 12h14M12 5v14'
   },
   {
-    title: 'Derechos de Autor',
-    desc: 'El servicio de protección del derecho de autor se encarga de resguardar las creaciones originales de una persona, como obras literarias, artísticas, musicales o científicas, contra el uso no autorizado.',
+    title: { es: 'Derechos de Autor', en: 'Copyrights' },
+    desc: { es: 'El servicio de protección del derecho de autor se encarga de resguardar las creaciones originales de una persona, como obras literarias, artísticas, musicales o científicas, contra el uso no autorizado.', en: 'We safeguard original works—literary, artistic, musical or scientific—against unauthorized use.' },
     icon: 'M4 8h16M4 16h10'
   },
   {
-    title: 'Registro de Marca en Aduana',
-    desc: 'Al registrar una marca en aduana, se facilita la vigilancia y el control sobre productos importados y exportados, garantizando que solo los productos genuinos sean comercializados, y se ayuda a prevenir la entrada de falsificaciones al mercado.',
+    title: { es: 'Registro de Marca en Aduana', en: 'Customs recordal' },
+    desc: { es: 'Al registrar una marca en aduana, se facilita la vigilancia y el control sobre productos importados y exportados, garantizando que solo los productos genuinos sean comercializados, y se ayuda a prevenir la entrada de falsificaciones al mercado.', en: 'Customs recordals enable border monitoring to stop counterfeit goods and ensure only genuine products enter or leave the market.' },
     icon: 'M12 2l3 7h7l-5.5 4 2.1 7L12 16 5.4 20 7.5 13 2 9h7z'
   },
   {
-    title: 'Auditoría de Activos de PI',
-    desc: 'El servicio de auditoría o due diligence sobre activos de propiedad intelectual evalúa y verifica el estado, valor y legalidad de los activos intangibles de una empresa, como marcas, patentes, derechos de autor y secretos comerciales.',
+    title: { es: 'Auditoría de Activos de PI', en: 'IP assets due diligence' },
+    desc: { es: 'El servicio de auditoría o due diligence sobre activos de propiedad intelectual evalúa y verifica el estado, valor y legalidad de los activos intangibles de una empresa, como marcas, patentes, derechos de autor y secretos comerciales.', en: 'IP audits/due diligence assess the status, value, and legality of intangible assets—trademarks, patents, copyrights, and trade secrets.' },
     icon: 'M3 12h18M3 8h12M3 16h8'
   },
   {
-    title: 'Registro de Nombres de Dominio',
-    desc: 'El servicio de registro de nombres de dominio facilita la adquisición y administración de direcciones web para una empresa o individuo.',
+    title: { es: 'Registro de Nombres de Dominio', en: 'Domain name registration' },
+    desc: { es: 'El servicio de registro de nombres de dominio facilita la adquisición y administración de direcciones web para una empresa o individuo.', en: 'We handle acquisition and management of domain names for businesses and individuals.' },
     icon: 'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z'
   },
   {
-    title: 'Protección de Variedades Vegetales',
-    desc: 'El servicio de protección de variedades vegetales asegura los derechos exclusivos sobre nuevas variedades de plantas, protegiendo las innovaciones en la agricultura y horticultura.',
+    title: { es: 'Protección de Variedades Vegetales', en: 'Plant variety protection' },
+    desc: { es: 'El servicio de protección de variedades vegetales asegura los derechos exclusivos sobre nuevas variedades de plantas, protegiendo las innovaciones en la agricultura y horticultura.', en: 'We secure exclusive rights over new plant varieties, protecting agricultural and horticultural innovations.' },
     icon: 'M12 2v20M2 12h20M7 7l10 10M17 7L7 17'
   },
   {
-    title: 'Redacción de Contratos',
-    desc: 'El servicio de redacción de contratos se encarga de crear documentos legales que formalizan acuerdos entre partes y regulan sus derechos y obligaciones.',
+    title: { es: 'Redacción de Contratos', en: 'Contract drafting' },
+    desc: { es: 'El servicio de redacción de contratos se encarga de crear documentos legales que formalizan acuerdos entre partes y regulan sus derechos y obligaciones.', en: 'We draft legal agreements that formalize deals and set out parties’ rights and obligations.' },
     icon: 'M4 4h16v16H4z M8 8h8M8 12h8M8 16h6'
   },
   {
-    title: 'Asesoría Contenciosa en PI',
-    desc: 'El servicio de asesoramiento en materia contenciosa para la protección de los derechos de propiedad intelectual ofrece apoyo legal especializado en la resolución de disputas relacionadas con activos intangibles.',
+    title: { es: 'Asesoría Contenciosa en PI', en: 'IP contentious advisory' },
+    desc: { es: 'El servicio de asesoramiento en materia contenciosa para la protección de los derechos de propiedad intelectual ofrece apoyo legal especializado en la resolución de disputas relacionadas con activos intangibles.', en: 'Specialized advice for disputes over IP assets, guiding enforcement and defense strategies.' },
     icon: 'M5 12l5 5L19 7'
   },
   {
-    title: 'Combate a la Falsificación y Piratería',
-    desc: 'El servicio de combate a la falsificación y piratería se enfoca en proteger los activos de propiedad intelectual de una empresa contra la producción y distribución ilegal de productos falsificados o pirateados.',
+    title: { es: 'Combate a la Falsificación y Piratería', en: 'Anti-counterfeiting & anti-piracy' },
+    desc: { es: 'El servicio de combate a la falsificación y piratería se enfoca en proteger los activos de propiedad intelectual de una empresa contra la producción y distribución ilegal de productos falsificados o pirateados.', en: 'We protect IP assets against counterfeit and pirated goods through coordinated enforcement actions.' },
     icon: 'M2 12h20M12 2v20'
   },
   {
-    title: 'Fashion Law',
-    desc: 'Este servicio se centra en proteger la propiedad intelectual en la industria de la moda, como marcas y diseños, y en la redacción de contratos para acuerdos de licencia y distribución. También aborda los derechos laborales para asegurar condiciones justas para los trabajadores y gestiona los aspectos legales de la exportación e importación, garantizando el cumplimiento de normativas y la protección contra falsificaciones.',
+    title: { es: 'Fashion Law', en: 'Fashion Law' },
+    desc: { es: 'Este servicio se centra en proteger la propiedad intelectual en la industria de la moda, como marcas y diseños, y en la redacción de contratos para acuerdos de licencia y distribución. También aborda los derechos laborales para asegurar condiciones justas para los trabajadores y gestiona los aspectos legales de la exportación e importación, garantizando el cumplimiento de normativas y la protección contra falsificaciones.', en: 'We protect fashion IP (trademarks, designs), draft license and distribution agreements, address labor considerations, and manage export/import compliance to prevent counterfeits.' },
     icon: 'M6 20l6-16 6 16M8 14h8'
   },
   {
-    title: 'Derecho Deportivo y PI en el Deporte',
-    desc: 'Asesoramos a clubes, deportistas y agentes en contratos, licencias de imagen, transferencia de derechos y protección de activos intangibles en la industria deportiva, alineando cumplimiento normativo y gestión comercial.',
+    title: { es: 'Derecho Deportivo y PI en el Deporte', en: 'Sports law & IP in sports' },
+    desc: { es: 'Asesoramos a clubes, deportistas y agentes en contratos, licencias de imagen, transferencia de derechos y protección de activos intangibles en la industria deportiva, alineando cumplimiento normativo y gestión comercial.', en: 'We advise clubs, athletes, and agents on contracts, image rights, rights transfers, and IP protection in sports, aligning compliance with business goals.' },
     icon: 'M12 2l3 7h-6l3-7M5 22l14-8-14-8v16z'
   },
 ]
@@ -69,6 +72,7 @@ function Icon({ d }:{ d:string }){
 
 export default function PracticeAreas(){
   const sectionRef = useScrollAnimation()
+  const { lang } = useLanguage()
   const [currentAreaIndex, setCurrentAreaIndex] = useState(0)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
@@ -126,21 +130,23 @@ export default function PracticeAreas(){
   return (
     <section id="areas" className="section scroll-animate-right" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">Áreas de práctica</h2>
-        <p className="section-desc">Servicios prestados en Uruguay y mediante una red de corresponsales en el exterior.</p>
+        <h2 className="section-title">{lang === 'es' ? 'Áreas de práctica' : 'Practice areas'}</h2>
+        <p className="section-desc">{lang === 'es' ? 'Servicios prestados en Uruguay y mediante una red de corresponsales en el exterior.' : 'Services delivered in Uruguay and through a trusted network of foreign associates.'}</p>
         
         {/* Desktop Grid */}
         <div className="grid cols-3 areas-desktop">
           {AREAS.map((a, index) => {
+            const cardKey = `${a.title.en}-${index}`
+            const isFashion = a.title.en === 'Fashion Law'
             const PracticeAreaCard = () => {
               const cardRef = useScrollAnimation()
               const isLong = index >= AREAS.length - 2
-              const cardClass = `card scroll-animate-up ${a.title === 'Fashion Law' ? 'fashion-law' : ''} ${isLong ? 'long-content' : ''}`
+              const cardClass = `card scroll-animate-up ${isFashion ? 'fashion-law' : ''} ${isLong ? 'long-content' : ''}`
               
               return (
                 <article 
                   className={cardClass}
-                  key={a.title} 
+                  key={cardKey} 
                   ref={cardRef}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
@@ -151,15 +157,15 @@ export default function PracticeAreas(){
                           <path d={a.icon}/>
                         </svg>
                       </div>
-                      <h3 style={{margin:0,fontSize:18,fontWeight:700,color:'var(--text)'}}>{a.title}</h3>
+                      <h3 style={{margin:0,fontSize:18,fontWeight:700,color:'var(--text)'}}>{a.title[lang]}</h3>
                     </div>
-                    <p style={{margin:0,color:'var(--muted)',lineHeight:1.6}}>{a.desc}</p>
+                    <p style={{margin:0,color:'var(--muted)',lineHeight:1.6}}>{a.desc[lang]}</p>
                   </div>
                 </article>
               )
             }
             
-            return <PracticeAreaCard key={a.title} />
+            return <PracticeAreaCard key={cardKey} />
           })}
         </div>
         
@@ -178,7 +184,7 @@ export default function PracticeAreas(){
               }}
             >
               {AREAS.map((area, index) => (
-                <article key={index} className="card mobile-carousel-item practice-area-mobile-card">
+                <article key={`${area.title.en}-${index}`} className="card mobile-carousel-item practice-area-mobile-card">
                   <div className="card-body">
                     <div className="practice-area-mobile-header">
                       <div className="practice-area-mobile-icon">
@@ -187,11 +193,11 @@ export default function PracticeAreas(){
                         </svg>
                       </div>
                       <h3 className="practice-area-mobile-title">
-                        {area.title}
+                        {area.title[lang]}
                       </h3>
                     </div>
                     <p className="practice-area-mobile-desc">
-                      {area.desc}
+                      {area.desc[lang]}
                     </p>
                   </div>
                 </article>
@@ -205,7 +211,7 @@ export default function PracticeAreas(){
                 key={index}
                 className={`mobile-carousel-dot ${index === currentAreaIndex ? 'active' : ''}`}
                 onClick={() => setCurrentAreaIndex(index)}
-                aria-label={`Ir al área ${index + 1}`}
+                aria-label={`${lang === 'es' ? 'Ir al área' : 'Go to area'} ${index + 1}`}
               />
             ))}
           </div>

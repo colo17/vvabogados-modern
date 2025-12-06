@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useLanguage } from '../i18n'
 
 const TEAM_IMAGES = [
   '/images/HeroNuevo2.jpg',
@@ -13,6 +14,22 @@ const TEAM_IMAGES = [
 export default function Hero(){
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [animationKey, setAnimationKey] = useState(0)
+  const { lang } = useLanguage()
+
+  const copy = {
+    es: {
+      text: 'Nuestro compromiso con la excelencia en la protección de la Propiedad Intelectual define cada uno de nuestros pasos, abordamos cada desafío con determinación y pasión.',
+      ctaPrimary: 'Agendar consulta',
+      ctaSecondary: 'Áreas de práctica'
+    },
+    en: {
+      text: 'Our commitment to excellence in protecting Intellectual Property drives every step we take; we tackle each challenge with determination and passion.',
+      ctaPrimary: 'Book a consultation',
+      ctaSecondary: 'Practice areas'
+    }
+  } as const
+
+  const t = copy[lang]
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -69,7 +86,7 @@ export default function Hero(){
       
       {/* Content */}
       <div className="container hero-content">
-        <div key={`logo-${animationKey}`} className="hero-logo hero-logo-animated">
+        <div key={`logo-${animationKey}-${lang}`} className="hero-logo hero-logo-animated">
           <img 
             src="/images/Logo Horizontal Blanco.png" 
             alt="VV Abogados" 
@@ -81,10 +98,10 @@ export default function Hero(){
             className="hero-logo-mobile"
           />
         </div>
-        <p key={`text-${animationKey}`} className="hero-text-animated">Nuestro compromiso con la excelencia en la protección de la Propiedad Intelectual define cada uno de nuestros pasos, abordamos cada desafío con determinación y pasión.</p>
-        <div key={`cta-${animationKey}`} className="hero-cta hero-cta-animated">
-          <a href="#contacto" className="button">Agendar consulta</a>
-          <a href="#areas" className="button button--ghost">Áreas de práctica</a>
+        <p key={`text-${animationKey}-${lang}`} className="hero-text-animated">{t.text}</p>
+        <div key={`cta-${animationKey}-${lang}`} className="hero-cta hero-cta-animated">
+          <a href="#contacto" className="button">{t.ctaPrimary}</a>
+          <a href="#areas" className="button button--ghost">{t.ctaSecondary}</a>
         </div>
       </div>
     </section>
