@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
 const TEAM_IMAGES = [
-  '/images/team1.jpg',
+  '/images/HeroNuevo2.jpg',
   '/images/team2.jpg',
+  '/images/HeroNuevo1.jpg',
   '/images/team3.jpg',
+  '/images/HeroNuevo3.jpg',
   '/images/team4.jpg',
-  '/images/team5.jpg',
   '/images/team6.jpg'
 ]
 

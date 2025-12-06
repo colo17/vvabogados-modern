@@ -1,35 +1,55 @@
 import React from 'react'
 
 export default function Footer(){
+  const year = new Date().getFullYear()
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
-          <div>
-            <div style={{marginBottom:12}}>
-              <img src="/images/Logo Horizontal Blanco.png" alt="VV Abogados" height="28" />
+          <div className="footer-card footer-brand">
+            <img src="/images/Logo Horizontal Blanco.png" alt="VV Abogados" height="28" />
+            <p className="footer-lead">Especialistas en Propiedad Intelectual. Marcas, patentes y derechos de autor.</p>
+            <p className="footer-sub">Protegemos ideas con estrategia, tecnología y cercanía.</p>
+            <div className="footer-actions">
+              <a className="button" href="#contacto">Agenda una consulta</a>
             </div>
-            <p style={{marginTop:12, maxWidth:420}}>Especialistas en Propiedad Intelectual. Marcas, patentes y derechos de autor.</p>
           </div>
-          <div>
-            <div style={{fontWeight:700, marginBottom:8}}>Áreas</div>
-            <ul style={{margin:0,paddingLeft:18,lineHeight:2}}>
-              <li>Marcas y patentes</li>
-              <li>Derechos de autor</li>
-              <li>Observancia aduanera</li>
+
+          <div className="footer-card footer-areas">
+            <div className="footer-heading">Áreas</div>
+            <div className="footer-areas-grid">
+              <ul className="footer-list">
+                <li>Registro de Marcas y Patentes</li>
+                <li>Derechos de Autor</li>
+                <li>Registro de Marca en Aduana</li>
+                <li>Auditoría de Activos de PI</li>
+                <li>Registro de Nombres de Dominio</li>
+                <li>Protección de Variedades Vegetales</li>
+              </ul>
+              <ul className="footer-list">
+                <li>Redacción de Contratos</li>
+                <li>Asesoría Contenciosa en PI</li>
+                <li>Combate a la Falsificación y Piratería</li>
+                <li>Fashion Law</li>
+                <li>Derecho Deportivo y PI en el Deporte</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="footer-card">
+            <div className="footer-heading">Contacto</div>
+            <ul className="footer-list">
+              <li>Miraflores 1445 Of. 203</li>
+              <li>Montevideo — Uruguay</li>
+              <li>Tel: (+598) 2603 0997</li>
+              <li>Email: vvabogados@vvabogados.com.uy</li>
             </ul>
           </div>
-          <div>
-            <div style={{fontWeight:700, marginBottom:8}}>Contacto</div>
-            <div>Miraflores 1445 Of. 203</div>
-            <div>Montevideo — Uruguay</div>
-            <div style={{marginTop:8}}>Tel: (+598) 2603 0997</div>
-            <div style={{marginTop:4}}>Email: veronicavanrell@vvabogados.com.uy</div>
-          </div>
         </div>
+
         <div className="footer-bottom">
           <div className="footer-bottom-content">
-            <span>© {new Date().getFullYear()} VV Abogados. Todos los derechos reservados.</span>
+            <span>© {year} VV Abogados. Todos los derechos reservados.</span>
             <div className="footer-social">
               <a href="https://www.linkedin.com/company/vv-abogados/" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="LinkedIn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

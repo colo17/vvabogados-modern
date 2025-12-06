@@ -52,11 +52,16 @@ const AREAS = [
     desc: 'Este servicio se centra en proteger la propiedad intelectual en la industria de la moda, como marcas y diseños, y en la redacción de contratos para acuerdos de licencia y distribución. También aborda los derechos laborales para asegurar condiciones justas para los trabajadores y gestiona los aspectos legales de la exportación e importación, garantizando el cumplimiento de normativas y la protección contra falsificaciones.',
     icon: 'M6 20l6-16 6 16M8 14h8'
   },
+  {
+    title: 'Derecho Deportivo y PI en el Deporte',
+    desc: 'Asesoramos a clubes, deportistas y agentes en contratos, licencias de imagen, transferencia de derechos y protección de activos intangibles en la industria deportiva, alineando cumplimiento normativo y gestión comercial.',
+    icon: 'M12 2l3 7h-6l3-7M5 22l14-8-14-8v16z'
+  },
 ]
 
 function Icon({ d }:{ d:string }){
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c6a15b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       <path d={d}/>
     </svg>
   )
@@ -76,11 +81,6 @@ export default function PracticeAreas(){
   
   const prevArea = () => {
     setCurrentAreaIndex((prev) => (prev - 1 + AREAS.length) % AREAS.length)
-  }
-
-  const truncateText = (text: string, maxLength: number = 180) => {
-    if (text.length <= maxLength) return text
-    return text.substring(0, maxLength).trim() + '...'
   }
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -134,18 +134,20 @@ export default function PracticeAreas(){
           {AREAS.map((a, index) => {
             const PracticeAreaCard = () => {
               const cardRef = useScrollAnimation()
+              const isLong = index >= AREAS.length - 2
+              const cardClass = `card scroll-animate-up ${a.title === 'Fashion Law' ? 'fashion-law' : ''} ${isLong ? 'long-content' : ''}`
               
               return (
                 <article 
-                  className={`card scroll-animate-up`} 
+                  className={cardClass}
                   key={a.title} 
                   ref={cardRef}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="card-body">
                     <div style={{display:'flex',alignItems:'center',gap:12, marginBottom:10}}>
-                      <div style={{width:36,height:36,background:'var(--primary)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center'}}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                      <div style={{width:36,height:36,background:'#e5e7eb',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
                           <path d={a.icon}/>
                         </svg>
                       </div>
@@ -180,7 +182,7 @@ export default function PracticeAreas(){
                   <div className="card-body">
                     <div className="practice-area-mobile-header">
                       <div className="practice-area-mobile-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
                           <path d={area.icon}/>
                         </svg>
                       </div>
@@ -189,7 +191,7 @@ export default function PracticeAreas(){
                       </h3>
                     </div>
                     <p className="practice-area-mobile-desc">
-                      {truncateText(area.desc)}
+                      {area.desc}
                     </p>
                   </div>
                 </article>

@@ -32,7 +32,7 @@ export default function Contact(){
           from_email: formData.email,
           phone: formData.phone,
           message: formData.message,
-          to_email: 'veronicavanrell@vvabogados.com.uy'
+          to_email: 'vvabogados@vvabogados.com.uy'
         },
         'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
       )
@@ -104,14 +104,14 @@ export default function Contact(){
           </div>
         </div>
         <div className="card">
-          <img src="/images/Estudio.png" alt="VV Abogados" />
+          <img src="/images/Estudio.png" alt="VV Abogados" style={{opacity:0.7,filter:'saturate(0.85)',mixBlendMode:'multiply'}} />
           <div className="card-body">
             <h3 style={{marginTop:0}}>Datos de contacto</h3>
-            <p style={{marginBottom:8,color:'#6b7a90'}}>veronicavanrell@vvabogados.com.uy</p>
+            <p style={{marginBottom:8,color:'#6b7a90'}}>vvabogados@vvabogados.com.uy</p>
             <p style={{marginBottom:8,color:'#6b7a90'}}>Tel: (+598) 2603 0997 / (+598) 94 519 555</p>
             <p style={{marginBottom:8,color:'#6b7a90'}}>Edificio Corporate – Miraflores 1445 – Of. 203, Montevideo, Carrasco.</p>
             <div style={{display:'flex', gap:'12px', flexWrap:'wrap'}}>
-              <a className="button" href="mailto:veronicavanrell@vvabogados.com.uy">Escribir por email</a>
+              <a className="button" href="mailto:vvabogados@vvabogados.com.uy">Escribir por email</a>
               <a className="button button--whatsapp" href="https://wa.me/59894519555" target="_blank" rel="noopener noreferrer">Mandar WhatsApp</a>
             </div>
           </div>

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { theme } from './theme'
 import Navbar from './components/Navbar'
 import Hero from './sections/Hero'
-import PracticeAreas from './sections/PracticeAreas'
+import WhyUs from './sections/WhyUs'
 import About from './sections/About'
 import Team from './sections/Team'
 import TestimonialsNews from './sections/TestimonialsNews'
+import PracticeAreas from './sections/PracticeAreas'
 import Contact from './sections/Contact'
 import AssociatedFirms from './sections/AssociatedFirms'
 import Footer from './sections/Footer'
@@ -57,12 +58,13 @@ export default function App(){
       <Navbar scrolled={scrolled} />
       <main>
         <Hero />
-        <PracticeAreas />
+        <WhyUs />
         <About />
+        <PracticeAreas />
         <Team />
-        <TestimonialsNews />
         <Contact />
         <AssociatedFirms />
+        <TestimonialsNews />
       </main>
       <Footer />
     </>

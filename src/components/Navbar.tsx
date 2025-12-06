@@ -22,10 +22,10 @@ export default function Navbar({ scrolled }: { scrolled:boolean }){
         {/* Desktop nav */}
         <nav className="nav-links nav-desktop">
           <a className="nav-link" href="#inicio" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Inicio</a>
+          <a className="nav-link" href="#porque-nosotros" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Por qué nosotros</a>
+          <a className="nav-link" href="#nosotros" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Quiénes somos</a>
           <a className="nav-link" href="#areas" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Áreas</a>
-          <a className="nav-link" href="#nosotros" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Nosotros</a>
           <a className="nav-link" href="#equipo" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Equipo</a>
-          <a className="nav-link" href="#noticias" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Noticias</a>
           <a className="nav-link" href="#estudios-asociados" style={{ color: scrolled ? '#6441a4' : '#fff' }}>Estudios asociados</a>
           <a 
             className="button" 
@@ -60,10 +60,10 @@ export default function Navbar({ scrolled }: { scrolled:boolean }){
       {open && (
         <div className="nav-mobile-panel container">
           <a className="nav-mobile-link" href="#inicio" onClick={close}>Inicio</a>
+          <a className="nav-mobile-link" href="#porque-nosotros" onClick={close}>Por qué nosotros</a>
+          <a className="nav-mobile-link" href="#nosotros" onClick={close}>Quiénes somos</a>
           <a className="nav-mobile-link" href="#areas" onClick={close}>Áreas</a>
-          <a className="nav-mobile-link" href="#nosotros" onClick={close}>Nosotros</a>
           <a className="nav-mobile-link" href="#equipo" onClick={close}>Equipo</a>
-          <a className="nav-mobile-link" href="#noticias" onClick={close}>Noticias</a>
           <a className="nav-mobile-link" href="#estudios-asociados" onClick={close}>Estudios asociados</a>
           <a className="button" href="#contacto" onClick={close} style={{marginTop:10, width:'100%', justifyContent:'center'}}>Contacto</a>
         </div>
