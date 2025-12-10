@@ -3,9 +3,9 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useLanguage } from '../i18n'
 
 export default function WhyUs(){
-  const sectionRef = useScrollAnimation()
-  const textRef = useScrollAnimation()
-  const figureRef = useScrollAnimation()
+  const sectionRef = useScrollAnimation<HTMLElement>()
+  const textRef = useScrollAnimation<HTMLDivElement>()
+  const figureRef = useScrollAnimation<HTMLDivElement>()
   const { lang } = useLanguage()
 
   const copy = {

@@ -34,7 +34,7 @@ export default function Footer(){
     en: {
       lead: 'Specialists in Intellectual Property. Trademarks, patents, and copyrights.',
       sub: 'We protect ideas with strategy, technology, and a personal touch.',
-      cta: 'Book a consultation',
+      cta: 'Contact Us',
       areas: 'Practice areas',
       contact: 'Contact',
       address: 'Miraflores 1445 Of. 203',

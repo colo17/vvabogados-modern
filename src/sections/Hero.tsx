@@ -24,7 +24,7 @@ export default function Hero(){
     },
     en: {
       text: 'Our commitment to excellence in protecting Intellectual Property drives every step we take; we tackle each challenge with determination and passion.',
-      ctaPrimary: 'Book a consultation',
+      ctaPrimary: 'Contact Us',
       ctaSecondary: 'Practice areas'
     }
   } as const

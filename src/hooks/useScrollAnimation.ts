@@ -1,7 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react'
 
-export function useScrollAnimation(threshold = 0.1) {
-  const elementRef = useRef<HTMLElement>(null)
+export function useScrollAnimation<T extends HTMLElement = HTMLElement>(threshold = 0.1) {
+  const elementRef = useRef<T>(null)
 
   const checkElementPosition = useCallback(() => {
     const element = elementRef.current
