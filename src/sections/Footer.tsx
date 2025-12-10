@@ -9,7 +9,7 @@ export default function Footer(){
     es: {
       lead: 'Especialistas en Propiedad Intelectual. Marcas, patentes y derechos de autor.',
       sub: 'Protegemos ideas con estrategia, tecnología y cercanía.',
-      cta: 'Agenda una consulta',
+      cta: 'Contacto',
       areas: 'Áreas',
       contact: 'Contacto',
       address: 'Miraflores 1445 Of. 203',

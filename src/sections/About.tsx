@@ -11,7 +11,7 @@ export default function About(){
       badge: 'Nosotros',
       title: 'Quiénes Somos',
       desc: 'En VV ABOGADOS, nos enorgullece ofrecer servicios especializados en Propiedad Intelectual a nuestros clientes. Nuestro Departamento de PI ha sido diseñado con la misión de salvaguardar los valiosos activos intangibles confiados a nosotros, con una perspectiva integral y un enfoque único para cada cliente.',
-      item1: 'Nuestros servicios: asesoría en marcas, patentes, derechos de autor, auditorías de PI, registro de dominios, protección de variedades vegetales, redacción de contratos, litigios de PI, combate de falsificación y gestión de registros en Aduanas de Uruguay.',
+      item1: 'Nuestros servicios: asesoría en registros de marcas, patentes, derechos de autor, auditorías de PI, registro de nombres dominios, protección de variedades vegetales, redacción de contratos, litigios de PI, infracciones marcarias - Antipirateria y gestión de registro de marcas en Aduanas de Uruguay. ',
       item2: 'Tanto en Uruguay como en el extranjero: estamos comprometidos a ofrecer un servicio excepcional y personalizado a cada cliente.'
     },
     en: {

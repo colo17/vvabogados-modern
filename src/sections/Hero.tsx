@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useLanguage } from '../i18n'
 
 const TEAM_IMAGES = [
-  '/images/HeroNuevo2.jpg',
+  '/images/HeroNuevo5.jpg',
+  '/images/HeroNuevo4.jpg',
   '/images/team2.jpg',
-  '/images/HeroNuevo1.jpg',
+  '/images/HeroNuevo6.jpg',
   '/images/team3.jpg',
   '/images/HeroNuevo3.jpg',
   '/images/team4.jpg',
-  '/images/team6.jpg'
 ]
 
 export default function Hero(){
@@ -19,7 +19,7 @@ export default function Hero(){
   const copy = {
     es: {
       text: 'Nuestro compromiso con la excelencia en la protección de la Propiedad Intelectual define cada uno de nuestros pasos, abordamos cada desafío con determinación y pasión.',
-      ctaPrimary: 'Agendar consulta',
+      ctaPrimary: 'Contacto',
       ctaSecondary: 'Áreas de práctica'
     },
     en: {

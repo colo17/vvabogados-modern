@@ -4,16 +4,16 @@ import { useLanguage } from '../i18n'
 
 const NEWS = {
   es: [
-    { title: 'Guía rápida para registrar tu marca en Uruguay', date: '2025-08-12', url: 'https://vvabogados.com.uy/' },
-    { title: 'Cómo proteger software y obras digitales: mitos y realidades', date: '2025-07-01', url: 'https://vvabogados.com.uy/' },
-    { title: 'Medidas en frontera y observancia aduanera', date: '2025-06-05', url: 'https://vvabogados.com.uy/' },
-    { title: 'Innovaciones y tendencias en propiedad intelectual 2025', date: '2025-09-10', url: 'https://vvabogados.com.uy/' },
+    { title: 'Estuvimos en ASIPI Buenos Aires', date: '2025-10-12', url: 'https://www.instagram.com/p/DSCo2J6kZvG/' },
+    { title: 'Newsletter 01', date: '2025-10-12', url: 'https://www.instagram.com/p/DNilYMgOzN6/?utm_source=ig_web_copy_link' },
+    { title: 'Jornada de Derecho y Moda', date: '2025-10-12', url: 'https://www.instagram.com/p/DPXOq5skpXS/?utm_source=ig_web_copy_link' },
+    { title: 'Estuvimos en Inta', date: '2025-10-12', url: 'https://www.instagram.com/reel/DKR04h2OCgo/?utm_source=ig_web_copy_link' },
   ],
   en: [
-    { title: 'Quick guide to registering your trademark in Uruguay', date: '2025-08-12', url: 'https://vvabogados.com.uy/' },
-    { title: 'How to protect software and digital works: myths vs. reality', date: '2025-07-01', url: 'https://vvabogados.com.uy/' },
-    { title: 'Border measures and customs enforcement', date: '2025-06-05', url: 'https://vvabogados.com.uy/' },
-    { title: 'IP innovations and trends 2025', date: '2025-09-10', url: 'https://vvabogados.com.uy/' },
+    { title: 'We attended ASIPI Buenos Aires', date: '2025-10-12', url: 'https://www.instagram.com/p/DSCo2J6kZvG/' },
+    { title: 'Newsletter 01', date: '2025-10-12', url: 'https://www.instagram.com/p/DNilYMgOzN6/?utm_source=ig_web_copy_link' },
+    { title: 'Fashion Law Day', date: '2025-10-12', url: 'https://www.instagram.com/p/DPXOq5skpXS/?utm_source=ig_web_copy_link' },
+    { title: 'We were at INTA', date: '2025-10-12', url: 'https://www.instagram.com/reel/DKR04h2OCgo/?utm_source=ig_web_copy_link' },
   ]
 } as const
 
