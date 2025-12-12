@@ -4,13 +4,13 @@ import { useLanguage } from '../i18n'
 
 const NEWS = {
   es: [
-    { title: 'Estuvimos en ASIPI Buenos Aires', date: '2025-10-12', url: 'https://www.instagram.com/p/DSCo2J6kZvG/' },
+    { title: 'Estuvimos en ASIPI Buenos Aires', date: '2025-10-12', url: 'https://instagram.com/p/DSF_DLKD62F/?igsh=MXJpaDRzcnJydG9ndw==' },
     { title: 'Newsletter 01', date: '2025-10-12', url: 'https://www.instagram.com/p/DNilYMgOzN6/?utm_source=ig_web_copy_link' },
     { title: 'Jornada de Derecho y Moda', date: '2025-10-12', url: 'https://www.instagram.com/p/DPXOq5skpXS/?utm_source=ig_web_copy_link' },
     { title: 'Estuvimos en Inta', date: '2025-10-12', url: 'https://www.instagram.com/reel/DKR04h2OCgo/?utm_source=ig_web_copy_link' },
   ],
   en: [
-    { title: 'We attended ASIPI Buenos Aires', date: '2025-10-12', url: 'https://www.instagram.com/p/DSCo2J6kZvG/' },
+    { title: 'We attended ASIPI Buenos Aires', date: '2025-10-12', url: 'https://instagram.com/p/DSF_DLKD62F/?igsh=MXJpaDRzcnJydG9ndw==' },
     { title: 'Newsletter 01', date: '2025-10-12', url: 'https://www.instagram.com/p/DNilYMgOzN6/?utm_source=ig_web_copy_link' },
     { title: 'Fashion Law Day', date: '2025-10-12', url: 'https://www.instagram.com/p/DPXOq5skpXS/?utm_source=ig_web_copy_link' },
     { title: 'We were at INTA', date: '2025-10-12', url: 'https://www.instagram.com/reel/DKR04h2OCgo/?utm_source=ig_web_copy_link' },
