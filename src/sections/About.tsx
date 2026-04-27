@@ -29,7 +29,7 @@ export default function About(){
     <section id="nosotros" className="section scroll-animate" style={{paddingTop:0}} ref={sectionRef}>
       <div className="container grid cols-2">
         <div className="card">
-          <img src="/images/Grupal fondo gris.jpg" alt="VV Abogados" />
+          <img src="/images/Grupalfondogris.png" alt="VV Abogados" />
         </div>
         <div className="about-copy">
           <span className="badge">{t.badge}</span>

@@ -102,7 +102,7 @@ export default function Navbar({ scrolled }: { scrolled:boolean }){
       <div className="container navbar-inner">
         <a href="#inicio" className="nav-logo" onClick={close}>
           <img 
-            src={scrolled ? "/images/Logo Horizontal Violeta.png" : "/images/Logo Horizontal Blanco.png"} 
+            src={scrolled ? "/images/LogoHorizontalVioleta.png" : "/images/LogoHorizontalBlanco.png"} 
             alt="VV Abogados" 
             height="32" 
           />

@@ -66,7 +66,7 @@ export default function Footer(){
       <div className="container">
         <div className="footer-grid">
           <div className="footer-card footer-brand">
-            <img src="/images/Logo Horizontal Blanco.png" alt="VV Abogados" height="28" />
+            <img src="/images/LogoHorizontalBlanco.png" alt="VV Abogados" height="28" />
             <p className="footer-lead">{t.lead}</p>
             <p className="footer-sub">{t.sub}</p>
             <div className="footer-actions">

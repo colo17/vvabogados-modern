@@ -52,7 +52,7 @@ export default function TestimonialsNews(){
                     “{t.quote}”
                   </p>
                   <div style={{display:'flex',alignItems:'center',gap:12}}>
-                    <div style={{width:40,height:40,borderRadius:999,background:'#e8eef6'}}/>
+                    <div style={{width:40,height:40,borderRadius:999,background:'var(--primary)'}}/>
                     <div>
                       <div style={{fontWeight:700}}>{t.name}</div>
                       <div style={{color:'#6b7a90',fontSize:14}}>{t.loc}</div>

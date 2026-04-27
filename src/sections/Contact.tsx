@@ -70,9 +70,10 @@ export default function Contact(){
     setIsLoading(true)
 
     try {
-      const result = await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+      // 📩 MAIL AL ESTUDIO
+      await emailjs.send(
+        'service_mordag3',
+        'template_rj91w9u',
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -80,11 +81,24 @@ export default function Contact(){
           message: formData.message,
           to_email: 'vvabogados@vvabogados.com.uy'
         },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        'COs03cUpnsp2EsXim'
       )
-      
+
+      // 🤖 AUTO-REPLY AL CLIENTE
+      await emailjs.send(
+        'service_mordag3',
+        'template_m15w7zr',
+        {
+          to_name: formData.name,
+          to_email: formData.email,
+          from_name: 'VV Abogados'
+        },
+        'COs03cUpnsp2EsXim'
+      )
+
       alert(t.success)
       setFormData({ name: '', email: '', phone: '', message: '' })
+
     } catch (error) {
       console.error('Error sending email:', error)
       alert(t.error)
@@ -149,6 +163,7 @@ export default function Contact(){
             </div>
           </div>
         </div>
+
         <div className="card">
           <img src="/images/Estudio.png" alt="VV Abogados" style={{opacity:0.7,filter:'saturate(0.85)',mixBlendMode:'multiply'}} />
           <div className="card-body">

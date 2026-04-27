@@ -39,7 +39,7 @@ export default function WhyUs(){
           </div>
         </div>
         <div className="card whyus-figure scroll-animate-right" ref={figureRef}>
-          <img src="/images/Vero Vanrell 2.jpg" alt="Dra. Verónica Vanrell" />
+          <img src="/images/VeroVanrell2.jpg" alt="Dra. Verónica Vanrell" />
         </div>
       </div>
     </section>

@@ -16,6 +16,11 @@ const AREAS = [
     icon: 'M4 8h16M4 16h10'
   },
   {
+    title: { es: 'Registro de Software', en: 'Software registration' },
+    desc: { es: 'Asesoramos en la protección legal de programas informáticos mediante su registro, dejando constancia de autoría, titularidad y fecha cierta para fortalecer la defensa frente a usos no autorizados.', en: 'We advise on the legal protection of software through registration, documenting authorship, ownership, and date of creation to strengthen enforcement against unauthorized use.' },
+    icon: 'M4 6h16v12H4z M8 10h8M8 14h5'
+  },
+  {
     title: { es: 'Registro de Marca en Aduana', en: 'Customs recordal' },
     desc: { es: 'Al registrar una marca en aduana, se facilita la vigilancia y el control sobre productos importados y exportados, garantizando que solo los productos genuinos sean comercializados, y se ayuda a prevenir la entrada de falsificaciones al mercado.', en: 'Customs recordals enable border monitoring to stop counterfeit goods and ensure only genuine products enter or leave the market.' },
     icon: 'M12 2l3 7h7l-5.5 4 2.1 7L12 16 5.4 20 7.5 13 2 9h7z'

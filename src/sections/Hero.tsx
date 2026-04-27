@@ -88,12 +88,12 @@ export default function Hero(){
       <div className="container hero-content">
         <div key={`logo-${animationKey}-${lang}`} className="hero-logo hero-logo-animated">
           <img 
-            src="/images/Logo Horizontal Blanco.png" 
+            src="/images/LogoHorizontalBlanco.png" 
             alt="VV Abogados" 
             className="hero-logo-desktop"
           />
           <img 
-            src="/images/Logo Vertical Blanco.png" 
+            src="/images/LogoVerticalBlanco.png" 
             alt="VV Abogados" 
             className="hero-logo-mobile"
           />
