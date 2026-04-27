@@ -112,7 +112,7 @@ const TEAM: Record<Lang, TeamMember[]> = {
       email: 'martinabrovia@vvabogados.com.uy'
     },
     { 
-      name: 'Guillermina Balsas', 
+      name: 'Guillermina Balsas Vanrell', 
       role: 'Departamento de PI', 
       img: '/images/GuilleBalsas1.jpg',
       modalImg: '/images/GuilleBalsas2.jpg',
@@ -202,7 +202,7 @@ const TEAM: Record<Lang, TeamMember[]> = {
     },
     { 
       name: 'Facundo Chirico', 
-      role: 'Procuración', 
+      role: 'Departamento Jurídico', 
       img: '/images/FacundoChirico1.png',
       modalImg: '/images/FacundoChirico2.jpeg',
       formation: 'Estudiante de la Facultad de Derecho de la República Oriental del Uruguay.',
@@ -331,7 +331,7 @@ const TEAM: Record<Lang, TeamMember[]> = {
       email: 'martinabrovia@vvabogados.com.uy'
     },
     { 
-      name: 'Guillermina Balsas', 
+      name: 'Guillermina Balsas Vanrell', 
       role: 'IP Department', 
       img: '/images/GuilleBalsas1.jpg',
       modalImg: '/images/GuilleBalsas2.jpg',
@@ -421,7 +421,7 @@ const TEAM: Record<Lang, TeamMember[]> = {
     },
     { 
       name: 'Facundo Chirico', 
-      role: 'Case Management', 
+      role: 'Legal Department', 
       img: '/images/FacundoChirico1.png',
       modalImg: '/images/FacundoChirico2.jpeg',
       formation: 'Law student, School of Law, República Oriental del Uruguay.',
